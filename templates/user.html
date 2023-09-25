@@ -1,0 +1,340 @@
+{% load static %}
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+	<title>DOCTOR - Responsive HTML &amp; Bootstrap Template</title>
+	<link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}">
+	<link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+	<link rel="stylesheet" href="{% static 'css/style.css' %}">
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:600italic,400,800,700,300' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=BenchNine:300,400,700' rel='stylesheet' type='text/css'>
+	<script src="{% static 'js/modernizr.js' %}"></script>
+      <script src="{% static 'js/html5shiv.js' %}"></script>
+      <script src="{% static 'js/respond.min.js' %}"></script>
+    <![endif]-->
+
+</head>
+<body>
+
+<!--	&lt;!&ndash; ====================================================-->
+		<header class="top-header">
+		<div class="container">
+            <div class="col-md-3 header-logo" style="height:130px;">
+					<h4 style="">{{ obj }}.</h4>
+				<button type="button" class="btn btn-danger"><a href="/logout/">logout</a></button>
+					<br>
+					<a href="/"><img src="{{ res.image }}" width="150px" height="100px" alt=""style="border-radius:100%;margin-left:60px;"></a>
+				</div>
+
+				<div class="col-md-6" style="padding-right:20px;">
+					<nav class="navbar navbar-default">
+					  <div class="container-fluid nav-bar">
+
+					    <div class="navbar-header">
+					      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+					        <span class="sr-only">Toggle navigation</span>
+					        <span class="icon-bar"></span>
+					        <span class="icon-bar"></span>
+					        <span class="icon-bar"></span>
+					      </button>
+					    </div>
+
+					    <!-- Collect the nav links, forms, and other content for toggling -->
+					    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+					      <ul class="nav navbar-nav navbar-left">
+					        <li><a class="menu active" href="" >Home</a></li>
+					        <li><a class="menu" href="">services</a></li>
+					        <li><a class="menu" href="">Doctors</a></li>
+					        <li><a class="menu" href=""></a></li>
+					        <li><a class="menu" href="">appoinment</a></li>
+                              <li><a class="menu" href="">contact us </a></li>
+					      </ul>
+					    </div><!-- /navbar-collapse -->
+					  </div><!-- / .container-fluid -->
+					</nav>
+				</div>
+
+
+            <div class="row" style="border:height:130px;">
+				  <div class="col-xs-3 header-logo">
+					<br>
+					<a href="/"><img src="{% static 'img/logo.png' %}" alt="" class="img-responsive logo"></a>
+				</div>
+
+
+
+
+			</div>
+		</div>
+	</header> <!-- end of header area -->
+	<section class="slider" id="home">
+		<div class="container-fluid">
+			<div class="row">
+			    <div id="carouselHacked" class="carousel slide carousel-fade" data-ride="carousel">
+					<div class="header-backup"></div>
+			        <!-- Wrapper for slides -->
+			        <div class="carousel-inner" role="listbox">
+			            <div class="item active">
+			            	<img src="{% static 'img/slide-one.jpg' %}" alt="">
+			                <div class="carousel-caption">
+		               			<h1>providing</h1>
+		               			<p>highquality service for men &amp; women</p>
+		               			<button>learn more</button>
+			                </div>
+			            </div>
+			            <div class="item">
+			            	<img src="{% static 'img/slide-two.jpg' %}" alt="">
+			                <div class="carousel-caption">
+		               			<h1>providing</h1>
+		               			<p>highquality service for men &amp; women</p>
+		               			<button>learn more</button>
+			                </div>
+			            </div>
+			            <div class="item">
+			            	<img src="{% static 'img/slide-three.jpg' %}" alt="">
+			                <div class="carousel-caption">
+		               			<h1>providing</h1>
+		               			<p>highquality service for men &amp; women</p>
+		               			<button>learn more</button>
+			                </div>
+			            </div>
+			            <div class="item">
+			            	<img src="{% static 'img/slide-four.jpg' %}" alt="">
+			                <div class="carousel-caption">
+		               			<h1>providing</h1>
+		               			<p>highquality service for men &amp; women</p>
+		               			<button>learn more</button>
+			                </div>
+			            </div>
+			        </div>
+			        <!-- Controls -->
+			        <a class="left carousel-control" href="#carouselHacked" role="button" data-slide="prev">
+			            <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+			            <span class="sr-only">Previous</span>
+			        </a>
+			        <a class="right carousel-control" href="#carouselHacked" role="button" data-slide="next">
+			            <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+			            <span class="sr-only">Next</span>
+			        </a>
+			    </div>
+			</div>
+		</div>
+	</section><!-- end of slider section -->
+
+<div class="container-fluid">
+<!--	-->
+
+	<div class="service" class="services wow fadeIn" style="padding-top:130px;margin-top:30px;">
+         <div class="container">
+
+            <div class="row">
+
+               <div class="col-lg-8 col-md-8 col-sm-6 col-xs-12">
+				   <h3 style="text-align:center;">Our Speciality:</h3>
+                  <div class="inner-services">
+                     <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
+                        <div class="serv">
+                           <span class="icon-service"><img src="{% static 'img/premium facility.jpg' %}" alt="#"  width="150px" height="150px" /></span>
+                           <h4>PREMIUM FACILITIES</h4>
+                        </div>
+                     </div>
+                     <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
+                        <div class="serv">
+                           <span class="icon-service"><img src="{% static 'img/laboratory.jpg' %}" alt="#" width="150px" height="150px" /></span>
+                           <h4>LARGE LABORATORY</h4>
+
+                        </div>
+                     </div>
+                     <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
+                        <div class="serv">
+                           <span class="icon-service"><img src="{% static 'img/detailed specialist.jpg' %}" alt="#"  width="150px" height="150px" /></span>
+                           <h4>DETAILED SPECIALIST</h4>
+                        </div>
+                     </div>
+                     <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
+                        <div class="serv">
+                           <span class="icon-service"><img src="{% static 'img/chidren care center.jpg' %}" alt="#" width="150px" height="150px" /></span>
+                           <h4>CHILDREN CARE CENTER</h4>
+                        </div>
+                     </div>
+                     <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
+                        <div class="serv">
+                           <span class="icon-service"><img src="{% static 'img/infrastucture.jpg' %}" alt="#" width="150px" height="150px" /></span>
+                           <h4>FINE INFRASTRUCTURE</h4>
+
+                        </div>
+                     </div>
+                     <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
+                        <div class="serv">
+                           <span class="icon-service"><img src="{% static 'img/blood.jpg' %}" alt="#"width="150px" height="150px"/></span>
+                           <h4>ANYTIME BLOOD BANK</h4>
+
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                  <div class="appointment-form">
+                     <h3 style=""><span>+</span> Book Appointment</h3>
+                     <div class="form">
+                        <form action="index.html">
+                           <fieldset>
+                              <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                 <div class="row">
+                                    <div class="form-group">
+                                       <input type="text" id="name" class="form-control" placeholder="enter Your Name">
+                                    </div>
+                                 </div>
+                              </div>
+                              <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                 <div class="row">
+                                    <div class="form-group">
+                                       <input type="email" class="form-control" placeholder="enter your Email Address" id="email" />
+                                    </div>
+                                 </div>
+                              </div>
+                              <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 select-section">
+                                 <div class="row">
+                                    <div class="form-group">
+                                       <input type="date" name="date" class="form-control" placeholder="date">
+                                    </div>
+                                    <div class="form-group">
+                                       <input type="time" name="time" placeholder="time" class="form-control">
+                                    </div>
+                                 </div>
+                              </div>
+                              <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                 <div class="row">
+                                    <div class="form-group">
+                                       <select class="form-control">
+                                          <option>specialization</option>
+                                          <option>cardiology</option>
+                                          <option>neurology</option>
+										   <option>dermatology</option>
+										   <option>children specialist</option>
+										   <option></option>
+                                       </select>
+                                    </div>
+                                 </div>
+                              </div>
+                              <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                 <div class="row">
+                                    <div class="form-group">
+                                       <textarea rows="4" id="textarea_message" class="form-control" placeholder="Your symptoms..."></textarea>
+                                    </div>
+                                 </div>
+                              </div>
+                              <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                 <div class="row">
+                                    <div class="form-group">
+                                       <div class="center"><button type="submit">Book Appoinment</button></div>
+                                    </div>
+                                 </div>
+                              </div>
+                           </fieldset>
+                        </form>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+
+
+
+        <section class="team" id="team">
+		<div class="container">
+			<div class="row">
+				<div class="team-heading text-center">
+					<h2>our team</h2>
+					<h4>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled</h4>
+				</div>
+				<div class="col-md-2 single-member col-sm-4">
+					<div class="person">
+						<img class="img-responsive" src="{% static 'img/member1.jpg' %}" alt="member-1">
+					</div>
+					<div class="person-detail">
+						<div class="arrow-bottom"></div>
+						<h3>Dr. M. Weiner, M.D.</h3>
+						<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, </p>
+					</div>
+				</div>
+				<div class="col-md-2 single-member col-sm-4">
+					<div class="person-detail">
+						<div class="arrow-top"></div>
+						<h3>Dr. Danielle, M.D.</h3>
+						<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, </p>
+					</div>
+					<div class="person">
+						<img class="img-responsive" src="{% static 'img/member2.jpg' %}" alt="member-2">
+					</div>
+				</div>
+				<div class="col-md-2 single-member col-sm-4">
+					<div class="person">
+						<img class="img-responsive" src="{% static 'img/member3.jpg' %}" alt="member-3">
+					</div>
+					<div class="person-detail">
+						<div class="arrow-bottom"></div>
+						<h3>Dr. Caitlin, M.D.</h3>
+						<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, </p>
+					</div>
+				</div>
+				<div class="col-md-2 single-member col-sm-4">
+					<div class="person-detail">
+						<div class="arrow-top"></div>
+						<h3>Dr. Joseph, M.D.</h3>
+						<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, </p>
+					</div>
+					<div class="person">
+						<img class="img-responsive" src="{% static 'img/member4.jpg' %}" alt="member-4">
+					</div>
+				</div>
+				<div class="col-md-2 single-member col-sm-4">
+					<div class="person">
+						<img class="img-responsive" src="{% static 'img/member5.jpg' %}" alt="member-5">
+					</div>
+					<div class="person-detail">
+						<div class="arrow-bottom"></div>
+						<h3>Dr. Michael, M.D.</h3>
+						<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, </p>
+					</div>
+				</div>
+				<div class="col-md-2 single-member col-sm-4">
+					<div class="person-detail">
+						<div class="arrow-top"></div>
+						<h3>Dr. Hasina, M.D.</h3>
+						<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, </p>
+					</div>
+					<div class="person">
+						<img class="img-responsive" src="{% static 'img/member6.jpg' %}" alt="member-5">
+					</div>
+				</div>
+			</div>
+		</div>
+	</section><!-- end of team section -->
+
+
+	<!-- footer starts here -->
+	<footer class="footer clearfix">
+		<div class="container">
+			<div class="row">
+				<div class="col-xs-6 footer-para">
+					<p>&copy;Mostafizur All right reserved</p>
+				</div>
+				<div class="col-xs-6 text-right">
+					<a href=""><i class="fa fa-facebook"></i></a>
+					<a href=""><i class="fa fa-twitter"></i></a>
+					<a href=""><i class="fa fa-skype"></i></a>
+				</div>
+			</div>
+		</div>
+	</footer>
+
+</body>
+</html>
