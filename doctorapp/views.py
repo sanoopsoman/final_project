@@ -121,8 +121,8 @@ def login2(request):
 
         return redirect('/admin1')
     elif user1 is not None and user1.is_superuser == 0:
-        x = tbl_account.objects.filter(account_type='doctor')
-        return redirect('/doctor')
+        # x = tbl_account.objects.filter(account_type='doctor')
+        return redirect('/user2')
 
 
     else:
