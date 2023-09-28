@@ -48,11 +48,11 @@
 					    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 
 					      <ul class="nav navbar-nav navbar-left">
-					        <li><a class="menu active" href="" >Home</a></li>
-					        <li><a class="menu" href="">services</a></li>
-					        <li><a class="menu" href="">Doctors</a></li>
-					        <li><a class="menu" href="">Patients</a></li>
-					        <li><a class="menu" href="">Boking Status</a></li>
+					        <li><a class="menu active" href="/admin1/" >Home</a></li>
+					        <li><a class="menu" href="/admin_service/">services</a></li>
+					        <li><a class="menu" href="/doctor_details/">Doctors</a></li>
+					        <li><a class="menu" href="/patient/">Patients</a></li>
+					        <li><a class="menu" href="/appoinment/">Booking Status</a></li>
                               <li><a class="menu" href=""> </a></li>
 					      </ul>
 					    </div><!-- /navbar-collapse -->
@@ -92,22 +92,22 @@
 					<div class="col-md-5 contact-info text-left">
 						<h3 style="text-align:center;">profile</h3>
 						<div class="info-detail" style="padding:20px;" >
-							<ul style="padding:10px;"><li><span>Name:</span> Hareesh</li></ul>
-							<ul style="padding:10px;"><li><span>Address:</span> arippemkunnel house,choothupara post,kenichira,wayand</li></ul>
-							<ul style="padding:10px;"><li><span>Specialization:</span> eye</li></ul>
-							<ul style="padding:10px;"><li><span>Designation:</span> senior</li></ul>
-							<ul style="padding:10px;"><li><span>Experience:</span> 4 year</li></ul>
-							<ul style="padding:10px;"><li><span>Qualification:</span> mbbs</li></ul>
-							<ul style="padding:10px;"><li><span>Gender:</span> male</li></ul>
-							<ul style="padding:10px;"><li><span>Phone:</span> 4233536337</li></ul>
-							<ul style="padding:10px;"><li><span>Email:</span> info@doctor.com</li></ul>
+							<ul style="padding:10px;"><li><span>Name:</span>{{ obj.username }}</li></ul>
+							<ul style="padding:10px;"><li><span>Address:</span> {{ obj.address }}</li></ul>
+							<ul style="padding:10px;"><li><span>Specialization:</span> {{ obj.specialization }}</li></ul>
+							<ul style="padding:10px;"><li><span>Designation:</span> {{ obj.designation }}</li></ul>
+							<ul style="padding:10px;"><li><span>Experience:</span> {{ obj.experience }}</li></ul>
+							<ul style="padding:10px;"><li><span>Qualification:</span>{{ obj.qualification }} </li></ul>
+							<ul style="padding:10px;"><li><span>Gender:</span>{{ obj.gender }}</li></ul>
+							<ul style="padding:10px;"><li><span>Phone:</span> {{ obj.mob }}</li></ul>
+							<ul style="padding:10px;"><li><span>Email:</span>{{ obj.email }}</li></ul>
 						</div>
 					</div>
 					<div class="col-md-6 col-md-offset-1 contact-info text-center">
-						<h3 style="text-align:center;">DR.hareesh</h3>
+						<h3 style="text-align:center;">DR.{{ obj.username }}</h3>
 
 						<div style="padding:20px;">
-							<img src="{% static 'img/member2.jpg' %}" height="250px" width="250px">
+							<img src="{{ obj.image }}" height="250px" width="250px">
 						</div>
 					</div>
 				</div>

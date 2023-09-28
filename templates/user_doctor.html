@@ -1,7 +1,7 @@
 {% load static %}
 <!DOCTYPE html>
 
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/html">
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -25,10 +25,10 @@
 		<header class="top-header">
 		<div class="container">
             <div class="col-md-3 header-logo" style="height:130px;">
-					<h4 style=""> Admin</h4>
+					<h4 style=""> {{str}}</h4>
 				<button type="button" class="btn btn-danger"><a href="/logout/">logout</a></button>
 					<br>
-					<a href="/"><img src="{% static 'img/about.jpg' %}" width="150px" height="100px" alt=""style="border-radius:100%;margin-left:60px;"></a>
+					<a href="/"><img src="{{ java.image }}" width="150px" height="100px" alt=""style="border-radius:100%;margin-left:60px;"></a>
 				</div>
 
 				<div class="col-md-6" style="padding-right:20px;">
@@ -48,11 +48,11 @@
 					    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 
 					      <ul class="nav navbar-nav navbar-left">
-					        <li><a class="menu active" href="" >Home</a></li>
-					        <li><a class="menu" href="/admin_service/">services</a></li>
-					        <li><a class="menu" href="/doctor_details/">Doctors</a></li>
-					        <li><a class="menu" href="/patient/">Patients</a></li>
-					        <li><a class="menu" href="/appoinment/">Boking Status</a></li>
+					        <li><a class="menu active" href="/user2/" >Home</a></li>
+					        <li><a class="menu" href="">services</a></li>
+					        <li><a class="menu" href="">Doctors</a></li>
+					        <li><a class="menu" href="/user_appoinment/">Appoinment</a></li>
+					        <li><a class="menu" href="/user_contact/">contact Us</a></li>
                               <li><a class="menu" href=""> </a></li>
 					      </ul>
 					    </div><!-- /navbar-collapse -->
@@ -72,10 +72,108 @@
 
 			</div>
 		</div>
-	</header> <!-- end of header area -->
-	section class="slider" id="home">
-		<div class="container-fluid">
-			<div class="row">
+	</header>
+
+
+
+		 <div class="container-fluid" style="padding-top:120px;">
+
+			 <h1 style="text-align:center;color:#42b3e5;"><b>OUR DOCTORS:</b></h1>
+
+            <div class="row" style="padding-top:20px;">
+
+				<h2 style="text-align:center;">Cardiology:</h2>
+				{% for i in obj %}
+               <div class="col-md-3 col-sm-6 col-xs-12">
+                  <div class="service-widget">
+                     <div class="post-media wow fadeIn">
+						  <a href="{% static 'img/clinic_01.jpg' %}" data-rel="prettyPhoto[gal]" class="hoverbutton global-radius"><i class="flaticon-unlink"></i></a>
+						 <h3 style="text-align:center;">DR.{{ i.username }}</h3>
+                       <a href="/user_doctorpro/{{i.id}}"><img src="{{ i.image }}" alt="" class="img-responsive"></a>
+					 </div>
+
+                  </div>
+                  <!-- end service -->
+               </div>
+				{% endfor %}
+
+               </div>
+			 <div class="row" style="padding-top:20px;">
+				 <h1 style="text-align:center;">Neurology:</h1>
+				 {% for i in res %}
+               <div class="col-md-3 col-sm-6 col-xs-12">
+                  <div class="service-widget">
+                     <div class="post-media wow fadeIn">
+						  <a href="{% static 'img/clinic_01.jpg' %}" data-rel="prettyPhoto[gal]" class="hoverbutton global-radius"><i class="flaticon-unlink"></i></a>
+						 <h3 style="text-align:center;">DR.{{ i.username }}</h3>
+						 <a href="/user_doctorpro/{{i.id}}"> <img src="{{ i.image }}" alt="" class="img-responsive"></a>
+					 </div>
+
+
+                  </div>
+                  <!-- end service -->
+               </div>
+
+				 {% endfor %}
+               </div>
+			  <div class="row" style="padding-top:20px;">
+				 <h1 style="text-align:center;">Dermatology:</h1>
+				  {% for i in var %}
+               <div class="col-md-3 col-sm-6 col-xs-12">
+                  <div class="service-widget">
+                     <div class="post-media wow fadeIn">
+						  <a href="{% static 'img/clinic_01.jpg' %}" data-rel="prettyPhoto[gal]" class="hoverbutton global-radius"><i class="flaticon-unlink"></i></a>
+						 <h3 style="text-align:center;">DR.{{ i.username }}</h3>
+						 <a href="/user_doctorpro/{{i.id}}"><img src="{{ i.image }}" alt="" class="img-responsive"></a>
+					 </div>
+
+
+                  </div>
+                  <!-- end service -->
+               </div>
+
+				  {% endfor %}
+               </div>
+			  <div class="row" style="padding-top:20px;">
+				 <h1 style="text-align:center;">children specialist:</h1>
+				  {% for i in py %}
+               <div class="col-md-3 col-sm-6 col-xs-12">
+                  <div class="service-widget">
+                     <div class="post-media wow fadeIn">
+						  <a href="{% static 'img/clinic_01.jpg' %}" data-rel="prettyPhoto[gal]" class="hoverbutton global-radius"><i class="flaticon-unlink"></i></a>
+						 <h3 style="text-align:center;">DR.{{ i.username }}</h3>
+						 <a href="/user_doctorpro/{{i.id}}"><img src="{{ i.image }}" alt="" class="img-responsive"></a>
+					 </div>
+
+                  </div>
+                  <!-- end service -->
+               </div>
+
+				  {% endfor %}
+               </div>
+					<div class="row" style="padding-top:20px;">
+				 <h1 style="text-align:center;">gynecology:</h1>
+						{% for i in css %}
+               <div class="col-md-3 col-sm-6 col-xs-12">
+                  <div class="service-widget">
+                     <div class="post-media wow fadeIn">
+						  <a href="{% static 'img/clinic_01.jpg' %}" data-rel="prettyPhoto[gal]" class="hoverbutton global-radius"><i class="flaticon-unlink"></i></a>
+						 <h3>DR.{{ i.username }}</h3>
+						 <a href="/user_doctorpro/{{i.id}}"><img src="{{ i.image }}" alt="" class="img-responsive"></a>
+
+					 </div>
+                  </div>
+                  <!-- end service -->
+               </div>
+
+						{% endfor %}
+               </div>
+
+               </div>
+
+    <section class="slider" id="home">
+		<div class="container-fluid" style="">
+			<div class="row" style="padding-top:0px;">
 			    <div id="carouselHacked" class="carousel slide carousel-fade" data-ride="carousel">
 					<div class="header-backup"></div>
 			        <!-- Wrapper for slides -->
@@ -127,76 +225,6 @@
 		</div>
 	</section><!-- end of slider section -->
 
-
-    <section class="team" id="team">
-		<div class="container" style="padding-top:130px;">
-			<div class="row">
-				<h2 style="text-align:center;">Our Doctors:</h2>
-
-				{% for i in obj %}
-				<div class="col-md-2 single-member col-sm-4">
-					<div class="person">
-						<img class="img-responsive" src="{{ i.image }}" alt="member-1">
-					</div>
-					<div class="person-detail">
-						<div class="arrow-bottom"></div>
-						<h3>Dr.{{ i.username }}.</h3>
-					</div>
-				</div>
-<!--				<div class="col-md-2 single-member col-sm-4">-->
-<!--					<div class="person-detail">-->
-<!--						<div class="arrow-top"></div>-->
-<!--						<h3>Dr. Danielle, M.D.</h3>-->
-<!--						-->
-<!--					</div>-->
-<!--					<div class="person">-->
-<!--						<img class="img-responsive" src="{% static 'img/member2.jpg' %}" alt="member-2">-->
-<!--					</div>-->
-<!--				</div>-->
-<!--				<div class="col-md-2 single-member col-sm-4">-->
-<!--					<div class="person">-->
-<!--						<img class="img-responsive" src="{% static 'img/member3.jpg' %}" alt="member-3">-->
-<!--					</div>-->
-<!--					<div class="person-detail">-->
-<!--						<div class="arrow-bottom"></div>-->
-<!--						<h3>Dr. Caitlin, M.D.</h3>-->
-<!--						<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, </p>-->
-<!--					</div>-->
-<!--				</div>-->
-<!--				<div class="col-md-2 single-member col-sm-4">-->
-<!--					<div class="person-detail">-->
-<!--						<div class="arrow-top"></div>-->
-<!--						<h3>Dr. Joseph, M.D.</h3>-->
-<!--						<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, </p>-->
-<!--					</div>-->
-<!--					<div class="person">-->
-<!--						<img class="img-responsive" src="{% static 'img/member4.jpg' %}" alt="member-4">-->
-<!--					</div>-->
-<!--				</div>-->
-<!--				<div class="col-md-2 single-member col-sm-4">-->
-<!--					<div class="person">-->
-<!--						<img class="img-responsive" src="{% static 'img/member5.jpg' %}" alt="member-5">-->
-<!--					</div>-->
-<!--					<div class="person-detail">-->
-<!--						<div class="arrow-bottom"></div>-->
-<!--						<h3>Dr. Michael, M.D.</h3>-->
-<!--						<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, </p>-->
-<!--					</div>-->
-<!--				</div>-->
-<!--				<div class="col-md-2 single-member col-sm-4">-->
-<!--					<div class="person-detail">-->
-<!--						<div class="arrow-top"></div>-->
-<!--						<h3>Dr. Hasina, M.D.</h3>-->
-<!--						<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, </p>-->
-<!--					</div>-->
-<!--					<div class="person">-->
-<!--						<img class="img-responsive" src="{% static 'img/member6.jpg' %}" alt="member-5">-->
-<!--					</div>-->
-<!--				</div>-->
-				{% endfor %}
-			</div>
-		</div>
-	</section><!-- end of team section -->
 
 	<!-- map section -->
 	<div class="api-map" id="contact">
@@ -308,6 +336,7 @@
 	</div><!-- end of map section -->
 
 	<!-- contact section starts here -->
+	<
 
 	<!-- footer starts here -->
 	<footer class="footer clearfix">

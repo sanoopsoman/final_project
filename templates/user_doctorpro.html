@@ -1,7 +1,7 @@
 {% load static %}
 <!DOCTYPE html>
 
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/html">
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -25,10 +25,10 @@
 		<header class="top-header">
 		<div class="container">
             <div class="col-md-3 header-logo" style="height:130px;">
-					<h4 style=""> Admin</h4>
+					<h4 style="">{{ res}}</h4>
 				<button type="button" class="btn btn-danger"><a href="/logout/">logout</a></button>
 					<br>
-					<a href="/"><img src="{% static 'img/about.jpg' %}" width="150px" height="100px" alt=""style="border-radius:100%;margin-left:60px;"></a>
+					<a href="/patient_data/{{str.id}}"><img src="{{ str.image }}" width="150px" height="100px" alt=""style="border-radius:100%;margin-left:60px;"></a>
 				</div>
 
 				<div class="col-md-6" style="padding-right:20px;">
@@ -49,11 +49,11 @@
 
 					      <ul class="nav navbar-nav navbar-left">
 					        <li><a class="menu active" href="" >Home</a></li>
-					        <li><a class="menu" href="/admin_service/">services</a></li>
-					        <li><a class="menu" href="/doctor_details/">Doctors</a></li>
-					        <li><a class="menu" href="/patient/">Patients</a></li>
-					        <li><a class="menu" href="/appoinment/">Boking Status</a></li>
-                              <li><a class="menu" href=""> </a></li>
+					        <li><a class="menu" href="">services</a></li>
+					        <li><a class="menu" href="/user_doctor/">Doctors</a></li>
+					        <li><a class="menu" href=""></a></li>
+					        <li><a class="menu" href="">appoinment</a></li>
+                              <li><a class="menu" href="">contact us </a></li>
 					      </ul>
 					    </div><!-- /navbar-collapse -->
 					  </div><!-- / .container-fluid -->
@@ -73,9 +73,49 @@
 			</div>
 		</div>
 	</header> <!-- end of header area -->
-	section class="slider" id="home">
-		<div class="container-fluid">
+
+
+	<!-- end of team section -->
+
+
+
+	<!-- map section -->
+
+	<!-- contact section starts here -->
+
+		<div class="container" style="width:100%; padding-top:80px;">
 			<div class="row">
+				<div class="contact-caption clearfix">
+
+					<div class="col-md-5 contact-info text-left">
+						<h3 style="text-align:center;">profile</h3>
+						<div class="info-detail" style="padding:20px;" >
+							<ul style="padding:10px;"><li><span>Name:</span>{{ obj.username }}</li></ul>
+							<ul style="padding:10px;"><li><span>Address:</span> {{ obj.address }}</li></ul>
+							<ul style="padding:10px;"><li><span>Specialization:</span> {{ obj.specialization }}</li></ul>
+							<ul style="padding:10px;"><li><span>Designation:</span> {{ obj.designation }}</li></ul>
+							<ul style="padding:10px;"><li><span>Experience:</span> {{ obj.experience }}</li></ul>
+							<ul style="padding:10px;"><li><span>Qualification:</span>{{ obj.qualification }} </li></ul>
+							<ul style="padding:10px;"><li><span>Gender:</span>{{ obj.gender }}</li></ul>
+							<ul style="padding:10px;"><li><span>Phone:</span> {{ obj.mob }}</li></ul>
+							<ul style="padding:10px;"><li><span>Email:</span>{{ obj.email }}</li></ul>
+						</div>
+					</div>
+					<div class="col-md-6 col-md-offset-1 contact-info text-center">
+						<h3 style="text-align:center;">DR.{{ obj.username }}</h3>
+
+
+						<div style="padding:20px;">
+							<img src="{{ obj.image }}" height="250px" width="250px">
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+ <section class="slider" id="home">
+		<div class="container-fluid" style="">
+			<div class="row" style="padding-top:0px;">
 			    <div id="carouselHacked" class="carousel slide carousel-fade" data-ride="carousel">
 					<div class="header-backup"></div>
 			        <!-- Wrapper for slides -->
@@ -127,119 +167,6 @@
 		</div>
 	</section><!-- end of slider section -->
 
-
-    <section class="team" id="team">
-		<div class="container" style="padding-top:130px;">
-			<div class="row">
-				<h2 style="text-align:center;">Our Doctors:</h2>
-
-				{% for i in obj %}
-				<div class="col-md-2 single-member col-sm-4">
-					<div class="person">
-						<img class="img-responsive" src="{{ i.image }}" alt="member-1">
-					</div>
-					<div class="person-detail">
-						<div class="arrow-bottom"></div>
-						<h3>Dr.{{ i.username }}.</h3>
-					</div>
-				</div>
-<!--				<div class="col-md-2 single-member col-sm-4">-->
-<!--					<div class="person-detail">-->
-<!--						<div class="arrow-top"></div>-->
-<!--						<h3>Dr. Danielle, M.D.</h3>-->
-<!--						-->
-<!--					</div>-->
-<!--					<div class="person">-->
-<!--						<img class="img-responsive" src="{% static 'img/member2.jpg' %}" alt="member-2">-->
-<!--					</div>-->
-<!--				</div>-->
-<!--				<div class="col-md-2 single-member col-sm-4">-->
-<!--					<div class="person">-->
-<!--						<img class="img-responsive" src="{% static 'img/member3.jpg' %}" alt="member-3">-->
-<!--					</div>-->
-<!--					<div class="person-detail">-->
-<!--						<div class="arrow-bottom"></div>-->
-<!--						<h3>Dr. Caitlin, M.D.</h3>-->
-<!--						<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, </p>-->
-<!--					</div>-->
-<!--				</div>-->
-<!--				<div class="col-md-2 single-member col-sm-4">-->
-<!--					<div class="person-detail">-->
-<!--						<div class="arrow-top"></div>-->
-<!--						<h3>Dr. Joseph, M.D.</h3>-->
-<!--						<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, </p>-->
-<!--					</div>-->
-<!--					<div class="person">-->
-<!--						<img class="img-responsive" src="{% static 'img/member4.jpg' %}" alt="member-4">-->
-<!--					</div>-->
-<!--				</div>-->
-<!--				<div class="col-md-2 single-member col-sm-4">-->
-<!--					<div class="person">-->
-<!--						<img class="img-responsive" src="{% static 'img/member5.jpg' %}" alt="member-5">-->
-<!--					</div>-->
-<!--					<div class="person-detail">-->
-<!--						<div class="arrow-bottom"></div>-->
-<!--						<h3>Dr. Michael, M.D.</h3>-->
-<!--						<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, </p>-->
-<!--					</div>-->
-<!--				</div>-->
-<!--				<div class="col-md-2 single-member col-sm-4">-->
-<!--					<div class="person-detail">-->
-<!--						<div class="arrow-top"></div>-->
-<!--						<h3>Dr. Hasina, M.D.</h3>-->
-<!--						<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, </p>-->
-<!--					</div>-->
-<!--					<div class="person">-->
-<!--						<img class="img-responsive" src="{% static 'img/member6.jpg' %}" alt="member-5">-->
-<!--					</div>-->
-<!--				</div>-->
-				{% endfor %}
-			</div>
-		</div>
-	</section><!-- end of team section -->
-
-	<!-- map section -->
-	<div class="api-map" id="contact">
-		<div class="container-fluid">
-			<div class="row">
-				<div class="col-md-12 map" id="map"></div>
-			</div>
-		</div>
-	</div><!-- end of map section -->
-
-	<!-- contact section starts here -->
-	<section class="contact">
-		<div class="container">
-			<div class="row">
-				<div class="contact-caption clearfix">
-					<div class="contact-heading text-center">
-						<h2>contact us</h2>
-					</div>
-					<div class="col-md-5 contact-info text-left">
-						<h3>contact information</h3>
-						<div class="info-detail">
-							<ul><li><i class="fa fa-calendar"></i><span>Monday - Friday:</span> 9:30 AM to 6:30 PM</li></ul>
-							<ul><li><i class="fa fa-map-marker"></i><span>Address:</span> 123 Some Street , London, UK, CP 123</li></ul>
-							<ul><li><i class="fa fa-phone"></i><span>Phone:</span> (032) 987-1235</li></ul>
-							<ul><li><i class="fa fa-fax"></i><span>Fax:</span> (123) 984-1234</li></ul>
-							<ul><li><i class="fa fa-envelope"></i><span>Email:</span> info@doctor.com</li></ul>
-						</div>
-					</div>
-					<div class="col-md-6 col-md-offset-1 contact-form">
-						<h3>leave us a message</h3>
-
-						<form class="form">
-							<input class="name" type="text" placeholder="Name">
-							<input class="email" type="email" placeholder="Email">
-							<input class="phone" type="text" placeholder="Phone No:">
-							<textarea class="message" name="message" id="message" cols="30" rows="10" placeholder="Message"></textarea>
-							<input class="submit-btn" type="submit" value="SUBMIT">
-						</form>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section><!-- end of contact section -->
 
 	<
 	<!-- about section -->
@@ -308,6 +235,7 @@
 	</div><!-- end of map section -->
 
 	<!-- contact section starts here -->
+	<
 
 	<!-- footer starts here -->
 	<footer class="footer clearfix">
