@@ -127,12 +127,17 @@ def login2(request):
 
         return redirect('/admin1')
     elif user1 is not None and user1.is_superuser == 0:
-        # x = tbl_account.objects.filter(account_type='doctor')
-        return redirect('/user2')
+        x = tbl_account.objects.get(username=user1)
+ 
+        if x.account_type == "doctor":
+            return redirect('/doctor')
 
-
+        elif x.account_type == "user":
+            return redirect('/user2')
     else:
-        return redirect('/user2')
+
+        return HttpResponse('invalid username or password')
+
 
 
 def user2(request):
