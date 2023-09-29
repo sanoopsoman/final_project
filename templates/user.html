@@ -28,7 +28,7 @@
 					<h4 style="">{{ obj }}.</h4>
 				<button type="button" class="btn btn-danger"><a href="/logout/">logout</a></button>
 					<br>
-					<a href="/"><img src="{{ res.image }}" width="150px" height="100px" alt=""style="border-radius:100%;margin-left:60px;"></a>
+					<a href="/patient_data/{{res.id}}"><img src="{{ res.image }}" width="150px" height="100px" alt=""style="border-radius:100%;margin-left:60px;"></a>
 				</div>
 
 				<div class="col-md-6" style="padding-right:20px;">
@@ -49,11 +49,11 @@
 
 					      <ul class="nav navbar-nav navbar-left">
 					        <li><a class="menu active" href="" >Home</a></li>
-					        <li><a class="menu" href="">services</a></li>
-					        <li><a class="menu" href="">Doctors</a></li>
+					        <li><a class="menu" href="/user_service/">services</a></li>
+					        <li><a class="menu" href="/user_doctor/">Doctors</a></li>
 					        <li><a class="menu" href=""></a></li>
-					        <li><a class="menu" href="">appoinment</a></li>
-                              <li><a class="menu" href="">contact us </a></li>
+					        <li><a class="menu" href="/user_appoinment/">appoinment</a></li>
+                              <li><a class="menu" href="/user_contact/">contact us </a></li>
 					      </ul>
 					    </div><!-- /navbar-collapse -->
 					  </div><!-- / .container-fluid -->
@@ -245,6 +245,7 @@
             </div>
          </div>
       </div>
+</div>
 
 
 
@@ -336,5 +337,5 @@
 		</div>
 	</footer>
 
-</body>
+ </body>
 </html>

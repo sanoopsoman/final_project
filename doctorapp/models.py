@@ -53,3 +53,20 @@ class doctor_detail(models.Model):
 
     class meta:
         db_doctor = "doctor"
+
+
+class tbl_appoinment(models.Model):
+    name=models.CharField(max_length=50)
+    age=models.IntegerField()
+    email=models.CharField(max_length=40)
+    specialization=models.CharField(max_length=30)
+    doctor=models.CharField(max_length=50)
+    gender=models.CharField(max_length=10)
+    image=models.CharField(max_length=500)
+    address=models.TextField()
+    date=models.DateField()
+    time=models.TimeField()
+    symtoms=models.TextField()
+    mob=models.IntegerField()
+    class meta:
+        db_book="appoinment"

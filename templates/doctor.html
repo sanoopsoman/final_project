@@ -47,9 +47,9 @@
 
 					      <ul class="nav navbar-nav navbar-left">
 					        <li><a class="menu active" href="" >Home</a></li>
-					        <li><a class="menu" href="login/">services</a></li>
-					        <li><a class="menu" href="/register">patients</a></li>
-					        <li><a class="menu" href=" login2/">contact us</a></li>
+					        <li><a class="menu" href="/doctor_service/">services</a></li>
+					        <li><a class="menu" href="/doctor_patient/">patients</a></li>
+					        <li><a class="menu" href="/doctor_appoinment/">Appoinment</a></li>
 					        <li><a class="menu" href="#contact"> </a></li>
 					      </ul>
 					    </div><!-- /navbar-collapse -->
@@ -61,7 +61,7 @@
 					<h4> {{obj}}</h4>
 					<button type="button" class="btn btn-danger"><a href="/logout/">logout</a></button>
 					<br>
-					<a href="/"><img src="{{x.image}}" width="150px" height="100px" alt=""style="border-radius:100%;margin-left:220px;"></a>
+					<a href="/doctor_profile1/{{x.id}}"><img src="{{x.image}}" width="150px" height="100px" alt=""style="border-radius:100%;margin-left:220px;"></a>
 				</div>
 
 
@@ -124,77 +124,27 @@
 		</div>
 	</section><!-- end of slider section -->
 
-    <section class="team" id="team">
-		<div class="container" style="padding-top:130px;">
-			<div class="row">
-				<div class="team-heading text-center">
-					<h2>our team</h2>
-					<h4>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled</h4>
-				</div>
-				<div class="col-md-2 single-member col-sm-4">
-					<div class="person">
-						<img class="img-responsive" src="{% static 'img/member1.jpg' %}" alt="member-1">
-					</div>
-					<div class="person-detail">
-						<div class="arrow-bottom"></div>
-						<h3>Dr. M. Weiner, M.D.</h3>
-						<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, </p>
-					</div>
-				</div>
-				<div class="col-md-2 single-member col-sm-4">
-					<div class="person-detail">
-						<div class="arrow-top"></div>
-						<h3>Dr. Danielle, M.D.</h3>
-						<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, </p>
-					</div>
-					<div class="person">
-						<img class="img-responsive" src="{% static 'img/member2.jpg' %}" alt="member-2">
-					</div>
-				</div>
-				<div class="col-md-2 single-member col-sm-4">
-					<div class="person">
-						<img class="img-responsive" src="{% static 'img/member3.jpg' %}" alt="member-3">
-					</div>
-					<div class="person-detail">
-						<div class="arrow-bottom"></div>
-						<h3>Dr. Caitlin, M.D.</h3>
-						<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, </p>
-					</div>
-				</div>
-				<div class="col-md-2 single-member col-sm-4">
-					<div class="person-detail">
-						<div class="arrow-top"></div>
-						<h3>Dr. Joseph, M.D.</h3>
-						<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, </p>
-					</div>
-					<div class="person">
-						<img class="img-responsive" src="{% static 'img/member4.jpg' %}" alt="member-4">
-					</div>
-				</div>
-				<div class="col-md-2 single-member col-sm-4">
-					<div class="person">
-						<img class="img-responsive" src="{% static 'img/member5.jpg' %}" alt="member-5">
-					</div>
-					<div class="person-detail">
-						<div class="arrow-bottom"></div>
-						<h3>Dr. Michael, M.D.</h3>
-						<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, </p>
-					</div>
-				</div>
-				<div class="col-md-2 single-member col-sm-4">
-					<div class="person-detail">
-						<div class="arrow-top"></div>
-						<h3>Dr. Hasina, M.D.</h3>
-						<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, </p>
-					</div>
-					<div class="person">
-						<img class="img-responsive" src="{% static 'img/member6.jpg' %}" alt="member-5">
-					</div>
-				</div>
-			</div>
-		</div>
-	</section><!-- end of team section -->
+   <div class="container-fluid" style="">
 
+
+            <div class="row" style="padding-top:160px;">
+				<h2 style="text-align:center;">Our Doctors:</h2>
+				 {% for i in var %}
+				<div class="col-md-3 col-sm-6 col-xs-12">
+                  <div class="service-widget">
+                     <div class="post-media wow fadeIn">
+                        <img src="{{ i.image }}" alt="" class="img-responsive">
+                     </div>
+					  <h3 style="text-align:center;background-color:#42b3e5;">{{ i.username }}</h3>
+                  </div>
+                  <!-- end service -->
+               </div>
+
+				 {% endfor %}
+               </div>
+
+
+               </div>
 	<!-- map section -->
 	<div class="api-map" id="contact">
 		<div class="container-fluid">

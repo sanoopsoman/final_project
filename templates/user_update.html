@@ -25,10 +25,10 @@
 		<header class="top-header">
 		<div class="container">
             <div class="col-md-3 header-logo" style="height:130px;">
-					<h4 style=""> Admin</h4>
+					<h4 style="">{{ py }}.</h4>
 				<button type="button" class="btn btn-danger"><a href="/logout/">logout</a></button>
 					<br>
-					<a href="/"><img src="{% static 'img/about.jpg' %}" width="150px" height="100px" alt=""style="border-radius:100%;margin-left:60px;"></a>
+					<a href="/patient_data/{{obj.id}}"><img src="{{ obj.image }}" width="150px" height="100px" alt=""style="border-radius:100%;margin-left:60px;"></a>
 				</div>
 
 				<div class="col-md-6" style="padding-right:20px;">
@@ -48,12 +48,12 @@
 					    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 
 					      <ul class="nav navbar-nav navbar-left">
-					        <li><a class="menu active" href="/admin1/" >Home</a></li>
-					        <li><a class="menu" href="">services</a></li>
-					        <li><a class="menu" href="/doctor_details/">Doctors</a></li>
-					        <li><a class="menu" href="/patient/">Patients</a></li>
-					        <li><a class="menu" href="/appoinment/">Boking Status</a></li>
-                              <li><a class="menu" href=""> </a></li>
+					        <li><a class="menu active" href="/user2/" >Home</a></li>
+					        <li><a class="menu" href="/user_service/">services</a></li>
+					        <li><a class="menu" href="/user_doctor/">Doctors</a></li>
+					        <li><a class="menu" href=""></a></li>
+					        <li><a class="menu" href="/user_appoinment/">appoinment</a></li>
+                              <li><a class="menu" href="/user_contact/">contact us </a></li>
 					      </ul>
 					    </div><!-- /navbar-collapse -->
 					  </div><!-- / .container-fluid -->
@@ -73,59 +73,61 @@
 			</div>
 		</div>
 	</header> <!-- end of header area -->
-		 <div class="container-fluid" style="">
-            <div class="row" style="padding-top:130px;">
-               <div class="col-md-4 col-sm-6 col-xs-12">
-                  <div class="service-widget">
-                     <div class="post-media wow fadeIn">
-                        <a href="{% static 'img/clinic_02.jpg' %}" data-rel="prettyPhoto[gal]" class="hoverbutton global-radius"><i class="flaticon-unlink"></i></a>
-                        <img src="{% static 'img/clinic_02.jpg' %}" alt="" class="img-responsive">
-                     </div>
-					  <h3 style="text-align:center;background-color:#42b3e5;"><a href="/view_patient/">View Patient</a></h3>
-                  </div>
-                  <!-- end service -->
-               </div>
-<!--				<div class="col-md-4 col-sm-6 col-xs-12">-->
-<!--                  <div class="service-widget">-->
-<!--                     <div class="post-media wow fadeIn">-->
-<!--                        <a href="{% static 'img/clinic_01.jpg' %}" data-rel="prettyPhoto[gal]" class="hoverbutton global-radius"><i class="flaticon-unlink"></i></a>-->
-<!--                        <img src="{% static 'img/clinic_01.jpg' %}" alt="" class="img-responsive">-->
-<!--                     </div>-->
-<!--					  <h3 style="text-align:center;background-color:#42b3e5;"><a href="/add_doctor1/">Add Doctors</a></h3>-->
-<!--                  </div>-->
-<!--                  &lt;!&ndash; end service &ndash;&gt;-->
-<!--               </div>-->
-				<div class="col-md-4 col-sm-6 col-xs-12">
-                  <div class="service-widget">
-                     <div class="post-media wow fadeIn">
-                        <a href="{% static 'img/clinic_02.jpg' %}" data-rel="prettyPhoto[gal]" class="hoverbutton global-radius"><i class="flaticon-unlink"></i></a>
-                        <img src="{% static 'img/clinic_02.jpg' %}" alt="" class="img-responsive">
-                     </div>
-					  <h3 style="text-align:center;background-color:#42b3e5;"><a href="/update_doctor/"><a href="/update_patient/">update Patient</a></h3>
-                  </div>
-                  <!-- end service -->
-               </div>
-				<div class="col-md-4 col-sm-6 col-xs-12">
-                  <div class="service-widget">
-                     <div class="post-media wow fadeIn">
-                        <a href="{% static 'img/clinic_03.jpg' %}" data-rel="prettyPhoto[gal]" class="hoverbutton global-radius"><i class="flaticon-unlink"></i></a>
-                        <img src="{% static 'img/clinic_03.jpg' %}" alt="" class="img-responsive">
-                     </div>
-					  <h3 style="text-align:center;background-color:#42b3e5;"><a href="/delete_patient/">Delete patient</a></h3>
-                  </div>
-                  <!-- end service -->
-               </div>
-               </div>
+<div class="container-fluid" style="">
+	<div class="container" style="">
 
-               </div>
-		<section class="slider" id="home">
-		<div class="container-fluid" style="">
-			<div class="row" style="padding-top:0px;">
+	<div class="row">
+		<div class="col-md-5" style="padding-top:180px;margin-left:-70px;">
+		<form action="/user_update1/{{obj.id}}" class="signin-form" enctype="multipart/form-data" method="post">
+			{% csrf_token %}
+			<h3 style="text-align:center;">{{ obj.username }}!!!</h3>
+					<div class="form-group">
+		      			<input type="text" class="form-control" name="fname" value="{{ obj.first_name }}" placeholder="first_name" required>
+		      		</div>
+				<div class="form-group">
+		      			<input type="text" class="form-control" name="lname" value="{{ obj.last_name }}" placeholder="last_name" required>
+		      		</div>
+			<div class="form-group">
+		      			<input type="" class="form-control" name="uname" value="{{ obj.username }}"  placeholder="Username" required>
+		      		</div>
+				<div class="form-group">
+		      			<input type="number" class="form-control" name="number" value="{{ obj.mob }}" placeholder="mobile number" required>
+		      		</div>
+						<div class="form-group">
+		      			<input type="email" class="form-control" name="email" value="{{ obj.email }}" placeholder="email" required>
+		      		</div>
+
+				<div class="form-group">
+		      			<textarea name="address" class="form-control" value="{{ obj.address }}" cols="25" rows="4">address</textarea>
+		      		</div>
+				<div class="form-group">
+					<label>photo:</label>
+					<img src="{{ obj.image }}">
+		      			<input type="file" class="form-control" placeholder="upload photo" name="image"required>
+		      		</div>
+
+						<label>gender:</label><br>
+		      			<input type="radio" class="" name="gender" value="male" required>male
+						<input type="radio" class="" name="gender" value="female">female
+
+	            <div class="form-group">
+	            	<button type="submit" class="form-control btn btn-primary submit px-3">Update</button>
+	            </div>
+
+	          </form>
+			{% for i in messages %}
+				{{i}}
+			{% endfor %}
+		</div>
+		<div class="col-md-7" style="padding-top:10px;padding-right:10px;">
+			<section class="slider" id="home">
+		<div class="container-fluid">
+			<div class="row">
 			    <div id="carouselHacked" class="carousel slide carousel-fade" data-ride="carousel">
 					<div class="header-backup"></div>
 			        <!-- Wrapper for slides -->
 			        <div class="carousel-inner" role="listbox">
-			            <div class="item active">
+			            <div class="item active" style="">
 			            	<img src="{% static 'img/slide-one.jpg' %}" alt="">
 			                <div class="carousel-caption">
 		               			<h1>providing</h1>
@@ -170,15 +172,148 @@
 			    </div>
 			</div>
 		</div>
-	</section><!-- end of slider section -->
+	</section><!--
+	 end of slider section -->
+	<div class="container-fluid" style="padding-top:120px;">
+
+			 <h1 style="text-align:center;color:#42b3e5;"><b>OUR DOCTORS:</b></h1>
+
+            <div class="row" style="padding-top:20px;">
 
 
+				{% for i in str %}
+               <div class="col-md-3 col-sm-6 col-xs-12">
+                  <div class="service-widget">
+                     <div class="post-media wow fadeIn">
+						  <a href="{% static 'img/clinic_01.jpg' %}" data-rel="prettyPhoto[gal]" class="hoverbutton global-radius"><i class="flaticon-unlink"></i></a>
 
-    <section class="team" id="team">
-		<div class="container" style="padding-top:130px;">
+                        <img src="{{ i.image }}" alt="" class="img-responsive">
+						 <h3 style="text-align:center; background-color:#42b3e5;">DR.{{ i.username }}</h3>
+					 </div>
+				  </div>
+                  <!-- end service -->
+               </div>
+				{% endfor %}
+		</div>
+	</div>
+		</div>
+	</div>
+	</div>
+</div>
+
+
+	<!-- about section -->
+	<section class="about text-center" id="about">
+		<div class="container">
+			<div class="row">
+				<h2>About Us:</h2>
+
+<!--					<div class="single-about-detail clearfix">-->
+<!--						<div class="about-img">-->
+<!--							<img class="img-responsive" src="{% static 'img/item1.jpg' %}" alt="">-->
+<!--						</div>-->
+<!--						<div class="about-details">-->
+<!--							<div class="pentagon-text">-->
+<!--								<h1>C</h1>-->
+<!--							</div>-->
+<!--							<h3>Children’s specialist</h3>-->
+<!--							<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer.</p>-->
+<!--						</div>-->
+<!--					</div>-->
+<!--				</div>-->
+<!--				<div class="col-md-4 col-sm-6">-->
+<!--					<div class="single-about-detail">-->
+<!--						<div class="about-img">-->
+<!--							<img class="img-responsive" src="{% static 'img/item2.jpg' %}" alt="">-->
+<!--						</div>-->
+<!--						<div class="about-details">-->
+<!--							<div class="pentagon-text">-->
+<!--								<h1>W</h1>-->
+<!--							</div>-->
+
+<!--							<h3>Children’s specialist</h3>-->
+<!--							<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer.</p>-->
+<!--						</div>-->
+<!--					</div>-->
+<!--				</div>-->
+				{% for i in var %}
+				   <div class="col-md-4 col-sm-6">
+					<div class="single-about-detail">
+						<div class="about-img">
+							<img class="" src="{{i.img.url}}" height="300px"   alt="">
+						</div>
+						<div class="about-details" style="height:250px;">
+							<div class="pentagon-text">
+								<h1>{{i.cap}}</h1>
+							</div>
+							<h3>{{i.name}}</h3>
+							<p style="">{{i.desc}}</p>
+						</div>
+					</div>
+				</div>
+				{% endfor %}
+			</div>
+		</div>
+	</section><!-- end of about section -->
+
+
+	<!-- service section starts here -->
+	<section class="service text-center" id="service">
+		<div class="container">
+			<div class="row">
+				<h2>our services</h2>
+				<h4>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</h4>
+				<div class="col-md-3 col-sm-6">
+					<div class="single-service">
+						<div class="single-service-img">
+							<div class="service-img">
+								<img class="heart img-responsive" src="{% static 'img/service1.png' %}" alt="">
+							</div>
+						</div>
+						<h3>Heart problem</h3>
+					</div>
+				</div>
+				<div class="col-md-3 col-sm-6">
+					<div class="single-service">
+						<div class="single-service-img">
+							<div class="service-img">
+								<img class="brain img-responsive" src="{% static 'img/service2.png' %}" alt="">
+							</div>
+						</div>
+						<h3>brain problem</h3>
+					</div>
+				</div>
+				<div class="col-md-3 col-sm-6">
+					<div class="single-service">
+						<div class="single-service-img">
+							<div class="service-img">
+								<img class="knee img-responsive" src="{% static 'img/service3.png' %}" alt="">
+							</div>
+						</div>
+						<h3>knee problem</h3>
+					</div>
+				</div>
+				<div class="col-md-3 col-sm-6">
+					<div class="single-service">
+						<div class="single-service-img">
+							<div class="service-img">
+								<img class="bone img-responsive" src="{% static 'img/service4.png' %}" alt="">
+							</div>
+						</div>
+						<h3>human bones problem</h3>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section><!-- end of service section -->
+
+
+	<!-- team section -->
+	<section class="team" id="team">
+		<div class="container">
 			<div class="row">
 				<div class="team-heading text-center">
-					<h2>Our Doctors:</h2>
+					<h2>our team</h2>
 					<h4>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled</h4>
 				</div>
 				<div class="col-md-2 single-member col-sm-4">
@@ -246,106 +381,6 @@
 	</section><!-- end of team section -->
 
 	<!-- map section -->
-	<div class="api-map" id="contact">
-		<div class="container-fluid">
-			<div class="row">
-				<div class="col-md-12 map" id="map"></div>
-			</div>
-		</div>
-	</div><!-- end of map section -->
-
-	<!-- contact section starts here -->
-	<section class="contact">
-		<div class="container">
-			<div class="row">
-				<div class="contact-caption clearfix">
-					<div class="contact-heading text-center">
-						<h2>contact us</h2>
-					</div>
-					<div class="col-md-5 contact-info text-left">
-						<h3>contact information</h3>
-						<div class="info-detail">
-							<ul><li><i class="fa fa-calendar"></i><span>Monday - Friday:</span> 9:30 AM to 6:30 PM</li></ul>
-							<ul><li><i class="fa fa-map-marker"></i><span>Address:</span> 123 Some Street , London, UK, CP 123</li></ul>
-							<ul><li><i class="fa fa-phone"></i><span>Phone:</span> (032) 987-1235</li></ul>
-							<ul><li><i class="fa fa-fax"></i><span>Fax:</span> (123) 984-1234</li></ul>
-							<ul><li><i class="fa fa-envelope"></i><span>Email:</span> info@doctor.com</li></ul>
-						</div>
-					</div>
-					<div class="col-md-6 col-md-offset-1 contact-form">
-						<h3>leave us a message</h3>
-
-						<form class="form">
-							<input class="name" type="text" placeholder="Name">
-							<input class="email" type="email" placeholder="Email">
-							<input class="phone" type="text" placeholder="Phone No:">
-							<textarea class="message" name="message" id="message" cols="30" rows="10" placeholder="Message"></textarea>
-							<input class="submit-btn" type="submit" value="SUBMIT">
-						</form>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section><!-- end of contact section -->
-
-	<
-	<!-- about section -->
-
-
-
-	<!-- service section starts here -->
-	<section class="service text-center" id="service">
-		<div class="container">
-			<div class="row">
-				<h2>our services</h2>
-				<h4>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</h4>
-				<div class="col-md-3 col-sm-6">
-					<div class="single-service">
-						<div class="single-service-img">
-							<div class="service-img">
-								<img class="heart img-responsive" src="{% static 'img/service1.png' %}" alt="">
-							</div>
-						</div>
-						<h3 style="background-color:light blue;">Heart problem</h3>
-					</div>
-				</div>
-				<div class="col-md-3 col-sm-6">
-					<div class="single-service">
-						<div class="single-service-img">
-							<div class="service-img">
-								<img class="brain img-responsive" src="{% static 'img/service2.png' %}" alt="">
-							</div>
-						</div>
-						<h3>brain problem</h3>
-					</div>
-				</div>
-				<div class="col-md-3 col-sm-6">
-					<div class="single-service">
-						<div class="single-service-img">
-							<div class="service-img">
-								<img class="knee img-responsive" src="{% static 'img/service3.png' %}" alt="">
-							</div>
-						</div>
-						<h3>knee problem</h3>
-					</div>
-				</div>
-				<div class="col-md-3 col-sm-6">
-					<div class="single-service">
-						<div class="single-service-img">
-							<div class="service-img">
-								<img class="bone img-responsive" src="{% static 'img/service4.png' %}" alt="">
-							</div>
-						</div>
-						<h3>human bones problem</h3>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section><!-- end of service section -->
-
-
-	<!-- team section -->
-
 	<div class="api-map" id="contact">
 		<div class="container-fluid">
 			<div class="row">

@@ -48,11 +48,11 @@
 					    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 
 					      <ul class="nav navbar-nav navbar-left">
-					        <li><a class="menu active" href="" >Home</a></li>
-					        <li><a class="menu" href="">services</a></li>
-					        <li><a class="menu" href="">Doctors</a></li>
-					        <li><a class="menu" href="">Patients</a></li>
-					        <li><a class="menu" href="">Boking Status</a></li>
+					        <li><a class="menu active" href="/admin1/" >Home</a></li>
+					        <li><a class="menu" href="/admin_service/">services</a></li>
+					        <li><a class="menu" href="/doctor_details/">Doctors</a></li>
+					        <li><a class="menu" href="/patient/">Patients</a></li>
+					        <li><a class="menu" href="/appoinment/">Boking Status</a></li>
                               <li><a class="menu" href=""> </a></li>
 					      </ul>
 					    </div><!-- /navbar-collapse -->
@@ -132,103 +132,212 @@
                </div>
 			 <div class="row" style="padding-top:20px;">
 				 <h1 style="text-align:center;">Neurology:</h1>
+				 {% for i in res %}
                <div class="col-md-3 col-sm-6 col-xs-12">
                   <div class="service-widget">
                      <div class="post-media wow fadeIn">
 						  <a href="{% static 'img/clinic_01.jpg' %}" data-rel="prettyPhoto[gal]" class="hoverbutton global-radius"><i class="flaticon-unlink"></i></a>
-						 <h3 style="text-align:center;">DR.Manu</h3>
-                        <img src="{% static 'img/clinic_01.jpg' %}" alt="" class="img-responsive">
+						 <h3 style="text-align:center;">DR.{{ i.username }}</h3>
+                        <img src="{{ i.image }}" alt="" class="img-responsive">
 					 </div>
 
-   <h4 style="text-align:center;"><button type="button" class="btn btn-danger">Delete</button></h4>
+   <h4 style="text-align:center;"><button type="button" class="btn btn-danger"><a href="/delete_doctor1/{{i.id}}">Delete</a></button></h4>
 
                   </div>
                   <!-- end service -->
                </div>
-				<div class="col-md-3 col-sm-6 col-xs-12">
-                  <div class="service-widget">
-                     <div class="post-media wow fadeIn">
-                        <a href="{% static 'img/clinic_01.jpg' %}" data-rel="prettyPhoto[gal]" class="hoverbutton global-radius"><i class="flaticon-unlink"></i></a>
-						<h3 style="text-align:center;">DR.Amal</h3>
-                        <img src="{% static 'img/clinic_01.jpg' %}" alt="" class="img-responsive">
-                     </div>
-					  <h4 style="text-align:center;"><button type="button" class="btn btn-danger">Delete</button></h4>
-                  </div>
-                  <!-- end service -->
-               </div>
-				<div class="col-md-3 col-sm-6 col-xs-12">
-                  <div class="service-widget">
-                     <div class="post-media wow fadeIn">
-                        <a href="{% static 'img/clinic_02.jpg' %}" data-rel="prettyPhoto[gal]" class="hoverbutton global-radius"><i class="flaticon-unlink"></i></a>
-						 <h3 style="text-align:center;">DR.Jith</h3>
-                        <img src="{% static 'img/clinic_02.jpg' %}" alt="" class="img-responsive">
-                     </div>
-                    <h4 style="text-align:center;"><button type="button" class="btn btn-danger"><a href="delete_doctor1/id"Delete</button></h4>
-                  </div>
-                  <!-- end service -->
-               </div>
-				<div class="col-md-3 col-sm-6 col-xs-12">
-                  <div class="service-widget">
-                     <div class="post-media wow fadeIn">
-                        <a href="{% static 'img/clinic_03.jpg' %}" data-rel="prettyPhoto[gal]" class="hoverbutton global-radius"><i class="flaticon-unlink"></i></a>
-						 <h3 style="text-align:center;">DR.Subash</h3>
-                        <img src="{% static 'img/clinic_03.jpg' %}" alt="" class="img-responsive">
-                     </div>
-                      <h4 style="text-align:center;"><button type="button" class="btn btn-danger">Delete</button></h4>
-                  </div>
-                  <!-- end service -->
-               </div>
+<!--				<div class="col-md-3 col-sm-6 col-xs-12">-->
+<!--                  <div class="service-widget">-->
+<!--                     <div class="post-media wow fadeIn">-->
+<!--                        <a href="{% static 'img/clinic_01.jpg' %}" data-rel="prettyPhoto[gal]" class="hoverbutton global-radius"><i class="flaticon-unlink"></i></a>-->
+<!--						<h3 style="text-align:center;">DR.Amal</h3>-->
+<!--                        <img src="{% static 'img/clinic_01.jpg' %}" alt="" class="img-responsive">-->
+<!--                     </div>-->
+<!--					  <h4 style="text-align:center;"><button type="button" class="btn btn-danger">Delete</button></h4>-->
+<!--                  </div>-->
+<!--                  &lt;!&ndash; end service &ndash;&gt;-->
+<!--               </div>-->
+<!--				<div class="col-md-3 col-sm-6 col-xs-12">-->
+<!--                  <div class="service-widget">-->
+<!--                     <div class="post-media wow fadeIn">-->
+<!--                        <a href="{% static 'img/clinic_02.jpg' %}" data-rel="prettyPhoto[gal]" class="hoverbutton global-radius"><i class="flaticon-unlink"></i></a>-->
+<!--						 <h3 style="text-align:center;">DR.Jith</h3>-->
+<!--                        <img src="{% static 'img/clinic_02.jpg' %}" alt="" class="img-responsive">-->
+<!--                     </div>-->
+<!--                    <h4 style="text-align:center;"><button type="button" class="btn btn-danger"><a href="delete_doctor1/id"Delete</button></h4>-->
+<!--                  </div>-->
+<!--                  &lt;!&ndash; end service &ndash;&gt;-->
+<!--               </div>-->
+<!--				<div class="col-md-3 col-sm-6 col-xs-12">-->
+<!--                  <div class="service-widget">-->
+<!--                     <div class="post-media wow fadeIn">-->
+<!--                        <a href="{% static 'img/clinic_03.jpg' %}" data-rel="prettyPhoto[gal]" class="hoverbutton global-radius"><i class="flaticon-unlink"></i></a>-->
+<!--						 <h3 style="text-align:center;">DR.Subash</h3>-->
+<!--                        <img src="{% static 'img/clinic_03.jpg' %}" alt="" class="img-responsive">-->
+<!--                     </div>-->
+<!--                      <h4 style="text-align:center;"><button type="button" class="btn btn-danger">Delete</button></h4>-->
+<!--                  </div>-->
+<!--                  &lt;!&ndash; end service &ndash;&gt;-->
+<!--               </div>-->
+				 {% endfor %}
                </div>
 					<div class="row" style="padding-top:20px;">
-				 <h1 style="text-align:center;">Psychology:</h1>
+				 <h1 style="text-align:center;">Dermatology:</h1>
+						{% for i in var %}
                <div class="col-md-3 col-sm-6 col-xs-12">
                   <div class="service-widget">
                      <div class="post-media wow fadeIn">
 						  <a href="{% static 'img/clinic_01.jpg' %}" data-rel="prettyPhoto[gal]" class="hoverbutton global-radius"><i class="flaticon-unlink"></i></a>
-						 <h3>sfddgvd</h3>
-                        <img src="{% static 'img/clinic_01.jpg' %}" alt="" class="img-responsive">
+						 <h3 style="text-align:center;">Dr.{{ i.username }}</h3>
+                        <img src="{{ i.image }}" alt="" class="img-responsive">
 					 </div>
 
-   <h4 style="text-align:center;"><button type="button" class="btn btn-danger">Delete</button></h4>
+   <h4 style="text-align:center;"><button type="button" class="btn btn-danger"><a href="/delete_doctor1/{{i.id}}">Delete</a></button></h4>
 
 
                   </div>
                   <!-- end service -->
                </div>
-				<div class="col-md-3 col-sm-6 col-xs-12">
+<!--				<div class="col-md-3 col-sm-6 col-xs-12">-->
+<!--                  <div class="service-widget">-->
+<!--                     <div class="post-media wow fadeIn">-->
+<!--                        <a href="{% static 'img/clinic_01.jpg' %}" data-rel="prettyPhoto[gal]" class="hoverbutton global-radius"><i class="flaticon-unlink"></i></a>-->
+<!--						 <h3 style="text-align:center;">DR.Kunjapzz</h3>-->
+<!--                        <img src="{% static 'img/clinic_01.jpg' %}" alt="" class="img-responsive">-->
+<!--                     </div>-->
+<!--					  <h4 style="text-align:center;"><button type="button" class="btn btn-danger">Delete</button></h4>-->
+<!--                  </div>-->
+<!--                  &lt;!&ndash; end service &ndash;&gt;-->
+<!--               </div>-->
+<!--				<div class="col-md-3 col-sm-6 col-xs-12">-->
+<!--                  <div class="service-widget">-->
+<!--                     <div class="post-media wow fadeIn">-->
+<!--                        <a href="{% static 'img/clinic_02.jpg' %}" data-rel="prettyPhoto[gal]" class="hoverbutton global-radius"><i class="flaticon-unlink"></i></a>-->
+<!--						<h3 style="text-align:center;">DR.Sandeep</h3>-->
+<!--                        <img src="{% static 'img/clinic_02.jpg' %}" alt="" class="img-responsive">-->
+<!--                     </div>-->
+<!--                      <h4 style="text-align:center;"><button type="button" class="btn btn-danger">Delete</button></h4>-->
+<!--                  </div>-->
+<!--                  &lt;!&ndash; end service &ndash;&gt;-->
+<!--               </div>-->
+<!--				<div class="col-md-3 col-sm-6 col-xs-12">-->
+<!--                  <div class="service-widget">-->
+<!--                     <div class="post-media wow fadeIn">-->
+<!--                        <a href="{% static 'img/clinic_03.jpg' %}" data-rel="prettyPhoto[gal]" class="hoverbutton global-radius"><i class="flaticon-unlink"></i></a>-->
+<!--						<h3 style="text-align:center;">DR.Arun</h3>-->
+<!--                        <img src="{% static 'img/clinic_03.jpg' %}" alt="" class="img-responsive">-->
+<!--                     </div>-->
+<!--                      <h4 style="text-align:center;"><button type="button" class="btn btn-danger">Delete</button></h4>-->
+<!--                  </div>-->
+<!--                  &lt;!&ndash; end service &ndash;&gt;-->
+<!--               </div>-->
+						{% endfor %}
+               </div>
+				<div class="row" style="padding-top:20px;">
+				 <h1 style="text-align:center;">hildren specialist:</h1>
+					{% for i in py %}
+               <div class="col-md-3 col-sm-6 col-xs-12">
                   <div class="service-widget">
                      <div class="post-media wow fadeIn">
-                        <a href="{% static 'img/clinic_01.jpg' %}" data-rel="prettyPhoto[gal]" class="hoverbutton global-radius"><i class="flaticon-unlink"></i></a>
-						 <h3 style="text-align:center;">DR.Kunjapzz</h3>
-                        <img src="{% static 'img/clinic_01.jpg' %}" alt="" class="img-responsive">
-                     </div>
-					  <h4 style="text-align:center;"><button type="button" class="btn btn-danger">Delete</button></h4>
+						  <a href="{% static 'img/clinic_01.jpg' %}" data-rel="prettyPhoto[gal]" class="hoverbutton global-radius"><i class="flaticon-unlink"></i></a>
+						 <h3 style="text-align:center;">DR.{{ i.username }}</h3>
+                        <img src="{{ i.image }}" alt="" class="img-responsive">
+					 </div>
+
+   <h4 style="text-align:center;"><button type="button" class="btn btn-danger"><a href="/delete_doctor1/{{i.id}}">Delete</a></button></h4>
+
+
                   </div>
                   <!-- end service -->
                </div>
-				<div class="col-md-3 col-sm-6 col-xs-12">
+<!--				<div class="col-md-3 col-sm-6 col-xs-12">-->
+<!--                  <div class="service-widget">-->
+<!--                     <div class="post-media wow fadeIn">-->
+<!--                        <a href="{% static 'img/clinic_01.jpg' %}" data-rel="prettyPhoto[gal]" class="hoverbutton global-radius"><i class="flaticon-unlink"></i></a>-->
+<!--						 <h3 style="text-align:center;">DR.Kunjapzz</h3>-->
+<!--                        <img src="{% static 'img/clinic_01.jpg' %}" alt="" class="img-responsive">-->
+<!--                     </div>-->
+<!--					  <h4 style="text-align:center;"><button type="button" class="btn btn-danger">Delete</button></h4>-->
+<!--                  </div>-->
+<!--                  &lt;!&ndash; end service &ndash;&gt;-->
+<!--               </div>-->
+<!--				<div class="col-md-3 col-sm-6 col-xs-12">-->
+<!--                  <div class="service-widget">-->
+<!--                     <div class="post-media wow fadeIn">-->
+<!--                        <a href="{% static 'img/clinic_02.jpg' %}" data-rel="prettyPhoto[gal]" class="hoverbutton global-radius"><i class="flaticon-unlink"></i></a>-->
+<!--						<h3 style="text-align:center;">DR.Sandeep</h3>-->
+<!--                        <img src="{% static 'img/clinic_02.jpg' %}" alt="" class="img-responsive">-->
+<!--                     </div>-->
+<!--                      <h4 style="text-align:center;"><button type="button" class="btn btn-danger">Delete</button></h4>-->
+<!--                  </div>-->
+<!--                  &lt;!&ndash; end service &ndash;&gt;-->
+<!--               </div>-->
+<!--				<div class="col-md-3 col-sm-6 col-xs-12">-->
+<!--                  <div class="service-widget">-->
+<!--                     <div class="post-media wow fadeIn">-->
+<!--                        <a href="{% static 'img/clinic_03.jpg' %}" data-rel="prettyPhoto[gal]" class="hoverbutton global-radius"><i class="flaticon-unlink"></i></a>-->
+<!--						<h3 style="text-align:center;">DR.Arun</h3>-->
+<!--                        <img src="{% static 'img/clinic_03.jpg' %}" alt="" class="img-responsive">-->
+<!--                     </div>-->
+<!--                      <h4 style="text-align:center;"><button type="button" class="btn btn-danger">Delete</button></h4>-->
+<!--                  </div>-->
+<!--                  &lt;!&ndash; end service &ndash;&gt;-->
+<!--               </div>-->
+					{% endfor %}
+               </div>
+			 <div class="row" style="padding-top:20px;">
+				 <h1 style="text-align:center;">gynecology:</h1>
+				 {% for i in css %}
+               <div class="col-md-3 col-sm-6 col-xs-12">
                   <div class="service-widget">
                      <div class="post-media wow fadeIn">
-                        <a href="{% static 'img/clinic_02.jpg' %}" data-rel="prettyPhoto[gal]" class="hoverbutton global-radius"><i class="flaticon-unlink"></i></a>
-						<h3 style="text-align:center;">DR.Sandeep</h3>
-                        <img src="{% static 'img/clinic_02.jpg' %}" alt="" class="img-responsive">
-                     </div>
-                      <h4 style="text-align:center;"><button type="button" class="btn btn-danger">Delete</button></h4>
+						  <a href="{% static 'img/clinic_01.jpg' %}" data-rel="prettyPhoto[gal]" class="hoverbutton global-radius"><i class="flaticon-unlink"></i></a>
+						 <h3 style="text-align:center;">DR.{{ i.username }}</h3>
+                        <img src="{{ i.image }}" alt="" class="img-responsive">
+					 </div>
+
+   <h4 style="text-align:center;"><button type="button" class="btn btn-danger"><a href="/delete_doctor1/{{i.id}}">Delete</a></button></h4>
+
+
                   </div>
                   <!-- end service -->
                </div>
-				<div class="col-md-3 col-sm-6 col-xs-12">
-                  <div class="service-widget">
-                     <div class="post-media wow fadeIn">
-                        <a href="{% static 'img/clinic_03.jpg' %}" data-rel="prettyPhoto[gal]" class="hoverbutton global-radius"><i class="flaticon-unlink"></i></a>
-						<h3 style="text-align:center;">DR.Arun</h3>
-                        <img src="{% static 'img/clinic_03.jpg' %}" alt="" class="img-responsive">
-                     </div>
-                      <h4 style="text-align:center;"><button type="button" class="btn btn-danger">Delete</button></h4>
-                  </div>
-                  <!-- end service -->
+<!--				<div class="col-md-3 col-sm-6 col-xs-12">-->
+<!--                  <div class="service-widget">-->
+<!--                     <div class="post-media wow fadeIn">-->
+<!--                        <a href="{% static 'img/clinic_01.jpg' %}" data-rel="prettyPhoto[gal]" class="hoverbutton global-radius"><i class="flaticon-unlink"></i></a>-->
+<!--						 <h3 style="text-align:center;">DR.Kunjapzz</h3>-->
+<!--                        <img src="{% static 'img/clinic_01.jpg' %}" alt="" class="img-responsive">-->
+<!--                     </div>-->
+<!--					  <h4 style="text-align:center;"><button type="button" class="btn btn-danger">Delete</button></h4>-->
+<!--                  </div>-->
+<!--                  &lt;!&ndash; end service &ndash;&gt;-->
+<!--               </div>-->
+<!--				<div class="col-md-3 col-sm-6 col-xs-12">-->
+<!--                  <div class="service-widget">-->
+<!--                     <div class="post-media wow fadeIn">-->
+<!--                        <a href="{% static 'img/clinic_02.jpg' %}" data-rel="prettyPhoto[gal]" class="hoverbutton global-radius"><i class="flaticon-unlink"></i></a>-->
+<!--						<h3 style="text-align:center;">DR.Sandeep</h3>-->
+<!--                        <img src="{% static 'img/clinic_02.jpg' %}" alt="" class="img-responsive">-->
+<!--                     </div>-->
+<!--                      <h4 style="text-align:center;"><button type="button" class="btn btn-danger">Delete</button></h4>-->
+<!--                  </div>-->
+<!--                  &lt;!&ndash; end service &ndash;&gt;-->
+<!--               </div>-->
+<!--				<div class="col-md-3 col-sm-6 col-xs-12">-->
+<!--                  <div class="service-widget">-->
+<!--                     <div class="post-media wow fadeIn">-->
+<!--                        <a href="{% static 'img/clinic_03.jpg' %}" data-rel="prettyPhoto[gal]" class="hoverbutton global-radius"><i class="flaticon-unlink"></i></a>-->
+<!--						<h3 style="text-align:center;">DR.Arun</h3>-->
+<!--                        <img src="{% static 'img/clinic_03.jpg' %}" alt="" class="img-responsive">-->
+<!--                     </div>-->
+<!--                      <h4 style="text-align:center;"><button type="button" class="btn btn-danger">Delete</button></h4>-->
+<!--                  </div>-->
+<!--                  &lt;!&ndash; end service &ndash;&gt;-->
+<!--               </div>-->
+				 {% endfor %}
                </div>
-               </div>
+
 
                </div>
 <!--		<section class="slider" id="home">-->
@@ -287,76 +396,6 @@
 
 
 
-    <section class="team" id="team">
-		<div class="container" style="padding-top:40px;">
-			<div class="row">
-				<div class="team-heading text-center">
-					<h2>Our Doctors:</h2>
-					<h4>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled</h4>
-				</div>
-				<div class="col-md-2 single-member col-sm-4">
-					<div class="person">
-						<img class="img-responsive" src="{% static 'img/member1.jpg' %}" alt="member-1">
-					</div>
-					<div class="person-detail">
-						<div class="arrow-bottom"></div>
-						<h3>Dr. M. Weiner, M.D.</h3>
-						<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, </p>
-					</div>
-				</div>
-				<div class="col-md-2 single-member col-sm-4">
-					<div class="person-detail">
-						<div class="arrow-top"></div>
-						<h3>Dr. Danielle, M.D.</h3>
-						<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, </p>
-					</div>
-					<div class="person">
-						<img class="img-responsive" src="{% static 'img/member2.jpg' %}" alt="member-2">
-					</div>
-				</div>
-				<div class="col-md-2 single-member col-sm-4">
-					<div class="person">
-						<img class="img-responsive" src="{% static 'img/member3.jpg' %}" alt="member-3">
-					</div>
-					<div class="person-detail">
-						<div class="arrow-bottom"></div>
-						<h3>Dr. Caitlin, M.D.</h3>
-						<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, </p>
-					</div>
-				</div>
-				<div class="col-md-2 single-member col-sm-4">
-					<div class="person-detail">
-						<div class="arrow-top"></div>
-						<h3>Dr. Joseph, M.D.</h3>
-						<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, </p>
-					</div>
-					<div class="person">
-						<img class="img-responsive" src="{% static 'img/member4.jpg' %}" alt="member-4">
-					</div>
-				</div>
-				<div class="col-md-2 single-member col-sm-4">
-					<div class="person">
-						<img class="img-responsive" src="{% static 'img/member5.jpg' %}" alt="member-5">
-					</div>
-					<div class="person-detail">
-						<div class="arrow-bottom"></div>
-						<h3>Dr. Michael, M.D.</h3>
-						<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, </p>
-					</div>
-				</div>
-				<div class="col-md-2 single-member col-sm-4">
-					<div class="person-detail">
-						<div class="arrow-top"></div>
-						<h3>Dr. Hasina, M.D.</h3>
-						<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, </p>
-					</div>
-					<div class="person">
-						<img class="img-responsive" src="{% static 'img/member6.jpg' %}" alt="member-5">
-					</div>
-				</div>
-			</div>
-		</div>
-	</section><!-- end of team section -->
 
 	<!-- map section -->
 	<div class="api-map" id="contact">

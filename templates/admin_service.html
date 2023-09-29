@@ -1,6 +1,6 @@
+
 {% load static %}
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
@@ -14,6 +14,7 @@
 	<link href='http://fonts.googleapis.com/css?family=Open+Sans:600italic,400,800,700,300' rel='stylesheet' type='text/css'>
 	<link href='http://fonts.googleapis.com/css?family=BenchNine:300,400,700' rel='stylesheet' type='text/css'>
 	<script src="{% static 'js/modernizr.js' %}"></script>
+	<!--[if lt IE 9]>
       <script src="{% static 'js/html5shiv.js' %}"></script>
       <script src="{% static 'js/respond.min.js' %}"></script>
     <![endif]-->
@@ -21,7 +22,8 @@
 </head>
 <body>
 
-<!--	&lt;!&ndash; ====================================================-->
+	<!-- ====================================================
+	header section -->
 		<header class="top-header">
 		<div class="container">
             <div class="col-md-3 header-logo" style="height:130px;">
@@ -48,7 +50,7 @@
 					    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 
 					      <ul class="nav navbar-nav navbar-left">
-					        <li><a class="menu active" href="" >Home</a></li>
+					        <li><a class="menu active" href="/admin1/" >Home</a></li>
 					        <li><a class="menu" href="/admin_service/">services</a></li>
 					        <li><a class="menu" href="/doctor_details/">Doctors</a></li>
 					        <li><a class="menu" href="/patient/">Patients</a></li>
@@ -73,7 +75,168 @@
 			</div>
 		</div>
 	</header> <!-- end of header area -->
-	section class="slider" id="home">
+	<!-- about section -->
+	<div class="service" class="services wow fadeIn" style="padding-top:130px;margin-top:30px;">
+         <div class="container">
+
+            <div class="row">
+
+
+				   <h1 style="text-align:center;">Our Special services:</h1>
+                  <div class="inner-services">
+                     <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
+                        <div class="serv">
+                           <span class="icon-service"><img src="{% static 'img/premium facility.jpg' %}" alt="#"  width="150px" height="150px" /></span>
+                           <h4>PREMIUM FACILITIES</h4>
+                        </div>
+                     </div>
+                     <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
+                        <div class="serv">
+                           <span class="icon-service"><img src="{% static 'img/laboratory.jpg' %}" alt="#" width="150px" height="150px" /></span>
+                           <h4>LARGE LABORATORY</h4>
+
+                        </div>
+                     </div>
+                     <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
+                        <div class="serv">
+                           <span class="icon-service"><img src="{% static 'img/detailed specialist.jpg' %}" alt="#"  width="150px" height="150px" /></span>
+                           <h4>DETAILED SPECIALIST</h4>
+                        </div>
+                     </div>
+                     <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
+                        <div class="serv">
+                           <span class="icon-service"><img src="{% static 'img/chidren care center.jpg' %}" alt="#" width="150px" height="150px" /></span>
+                           <h4>CHILDREN CARE CENTER</h4>
+                        </div>
+                     </div>
+                     <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
+                        <div class="serv">
+                           <span class="icon-service"><img src="{% static 'img/infrastucture.jpg' %}" alt="#" width="150px" height="150px" /></span>
+                           <h4>FINE INFRASTRUCTURE</h4>
+
+                        </div>
+                     </div>
+                     <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
+                        <div class="serv">
+                           <span class="icon-service"><img src="{% static 'img/blood.jpg' %}" alt="#"width="150px" height="150px"/></span>
+                           <h4>ANYTIME BLOOD BANK</h4>
+
+                        </div>
+                     </div>
+                  </div>
+
+            </div>
+         </div>
+      </div>
+</div>
+ 	<section class="about text-center" id="about">
+		<div class="container" style="padding-top:80px;">
+			<div class="row">
+				<h2>services:</h2>
+
+<!--				<div class="col-md-4 col-sm-6">-->
+<!--					<div class="single-about-detail clearfix">-->
+<!--						<div class="about-img">-->
+<!--							<img class="img-responsive" src="{% static 'img/item1.jpg' %}" alt="">-->
+<!--						</div>-->
+<!--						<div class="about-details">-->
+<!--							<div class="pentagon-text">-->
+<!--								<h1>C</h1>-->
+<!--							</div>-->
+<!--							<h3>Children’s specialist</h3>-->
+<!--							<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer.</p>-->
+<!--						</div>-->
+<!--					</div>-->
+<!--				</div>-->
+<!--				<div class="col-md-4 col-sm-6">-->
+<!--					<div class="single-about-detail">-->
+<!--						<div class="about-img">-->
+<!--							<img class="img-responsive" src="{% static 'img/item2.jpg' %}" alt="">-->
+<!--						</div>-->
+<!--						<div class="about-details">-->
+<!--							<div class="pentagon-text">-->
+<!--								<h1>W</h1>-->
+<!--							</div>-->
+
+<!--							<h3>Children’s specialist</h3>-->
+<!--							<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer.</p>-->
+<!--						</div>-->
+<!--					</div>-->
+<!--				</div>-->
+				{% for i in obj %}
+				   <div class="col-md-4 col-sm-6">
+					<div class="single-about-detail">
+						<div class="about-img">
+							<img class="" src="{{i.img.url}}" height="300px"   alt="">
+						</div>
+						<div class="about-details" style="height:250px;">
+							<div class="pentagon-text">
+								<h1>{{i.cap}}</h1>
+							</div>
+							<h3>{{i.name}}</h3>
+							<p style="">{{i.desc}}</p>
+						</div>
+					</div>
+				</div>
+				{% endfor %}
+			</div>
+		</div>
+	</section><!-- end of about section -->
+
+
+
+	<!-- service section starts here -->
+	<section class="service text-center" id="service">
+		<div class="container">
+			<div class="row">
+				<h2>other services</h2>
+				<h4>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</h4>
+				<div class="col-md-3 col-sm-6">
+					<div class="single-service">
+						<div class="single-service-img">
+							<div class="service-img">
+								<img class="heart img-responsive" src="{% static 'img/service1.png' %}" alt="">
+							</div>
+						</div>
+						<h3>Heart problem</h3>
+					</div>
+				</div>
+				<div class="col-md-3 col-sm-6">
+					<div class="single-service">
+						<div class="single-service-img">
+							<div class="service-img">
+								<img class="brain img-responsive" src="{% static 'img/service2.png' %}" alt="">
+							</div>
+						</div>
+						<h3>brain problem</h3>
+					</div>
+				</div>
+				<div class="col-md-3 col-sm-6">
+					<div class="single-service">
+						<div class="single-service-img">
+							<div class="service-img">
+								<img class="knee img-responsive" src="{% static 'img/service3.png' %}" alt="">
+							</div>
+						</div>
+						<h3>knee problem</h3>
+					</div>
+				</div>
+				<div class="col-md-3 col-sm-6">
+					<div class="single-service">
+						<div class="single-service-img">
+							<div class="service-img">
+								<img class="bone img-responsive" src="{% static 'img/service4.png' %}" alt="">
+							</div>
+						</div>
+						<h3>human bones problem</h3>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+	</section><!-- end of service section -->
+    <section class="slider" id="home">
 		<div class="container-fluid">
 			<div class="row">
 			    <div id="carouselHacked" class="carousel slide carousel-fade" data-ride="carousel">
@@ -128,76 +291,29 @@
 	</section><!-- end of slider section -->
 
 
-    <section class="team" id="team">
-		<div class="container" style="padding-top:130px;">
-			<div class="row">
+
+	<!-- team section -->
+	 <div class="container-fluid" style="">
+
+
+            <div class="row" style="padding-top:160px;">
 				<h2 style="text-align:center;">Our Doctors:</h2>
+				 {% for i in res %}
+				<div class="col-md-3 col-sm-6 col-xs-12">
+                  <div class="service-widget">
+                     <div class="post-media wow fadeIn">
+                        <img src="{{ i.image }}" alt="" class="img-responsive">
+                     </div>
+					  <h3 style="text-align:center;background-color:#42b3e5;">{{ i.username }}</h3>
+                  </div>
+                  <!-- end service -->
+               </div>
 
-				{% for i in obj %}
-				<div class="col-md-2 single-member col-sm-4">
-					<div class="person">
-						<img class="img-responsive" src="{{ i.image }}" alt="member-1">
-					</div>
-					<div class="person-detail">
-						<div class="arrow-bottom"></div>
-						<h3>Dr.{{ i.username }}.</h3>
-					</div>
-				</div>
-<!--				<div class="col-md-2 single-member col-sm-4">-->
-<!--					<div class="person-detail">-->
-<!--						<div class="arrow-top"></div>-->
-<!--						<h3>Dr. Danielle, M.D.</h3>-->
-<!--						-->
-<!--					</div>-->
-<!--					<div class="person">-->
-<!--						<img class="img-responsive" src="{% static 'img/member2.jpg' %}" alt="member-2">-->
-<!--					</div>-->
-<!--				</div>-->
-<!--				<div class="col-md-2 single-member col-sm-4">-->
-<!--					<div class="person">-->
-<!--						<img class="img-responsive" src="{% static 'img/member3.jpg' %}" alt="member-3">-->
-<!--					</div>-->
-<!--					<div class="person-detail">-->
-<!--						<div class="arrow-bottom"></div>-->
-<!--						<h3>Dr. Caitlin, M.D.</h3>-->
-<!--						<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, </p>-->
-<!--					</div>-->
-<!--				</div>-->
-<!--				<div class="col-md-2 single-member col-sm-4">-->
-<!--					<div class="person-detail">-->
-<!--						<div class="arrow-top"></div>-->
-<!--						<h3>Dr. Joseph, M.D.</h3>-->
-<!--						<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, </p>-->
-<!--					</div>-->
-<!--					<div class="person">-->
-<!--						<img class="img-responsive" src="{% static 'img/member4.jpg' %}" alt="member-4">-->
-<!--					</div>-->
-<!--				</div>-->
-<!--				<div class="col-md-2 single-member col-sm-4">-->
-<!--					<div class="person">-->
-<!--						<img class="img-responsive" src="{% static 'img/member5.jpg' %}" alt="member-5">-->
-<!--					</div>-->
-<!--					<div class="person-detail">-->
-<!--						<div class="arrow-bottom"></div>-->
-<!--						<h3>Dr. Michael, M.D.</h3>-->
-<!--						<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, </p>-->
-<!--					</div>-->
-<!--				</div>-->
-<!--				<div class="col-md-2 single-member col-sm-4">-->
-<!--					<div class="person-detail">-->
-<!--						<div class="arrow-top"></div>-->
-<!--						<h3>Dr. Hasina, M.D.</h3>-->
-<!--						<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, </p>-->
-<!--					</div>-->
-<!--					<div class="person">-->
-<!--						<img class="img-responsive" src="{% static 'img/member6.jpg' %}" alt="member-5">-->
-<!--					</div>-->
-<!--				</div>-->
-				{% endfor %}
-			</div>
-		</div>
-	</section><!-- end of team section -->
+				 {% endfor %}
+               </div>
 
+
+               </div>
 	<!-- map section -->
 	<div class="api-map" id="contact">
 		<div class="container-fluid">
@@ -240,74 +356,6 @@
 			</div>
 		</div>
 	</section><!-- end of contact section -->
-
-	<
-	<!-- about section -->
-
-
-
-	<!-- service section starts here -->
-	<section class="service text-center" id="service">
-		<div class="container">
-			<div class="row">
-				<h2>our services</h2>
-				<h4>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</h4>
-				<div class="col-md-3 col-sm-6">
-					<div class="single-service">
-						<div class="single-service-img">
-							<div class="service-img">
-								<img class="heart img-responsive" src="{% static 'img/service1.png' %}" alt="">
-							</div>
-						</div>
-						<h3 style="background-color:light blue;">Heart problem</h3>
-					</div>
-				</div>
-				<div class="col-md-3 col-sm-6">
-					<div class="single-service">
-						<div class="single-service-img">
-							<div class="service-img">
-								<img class="brain img-responsive" src="{% static 'img/service2.png' %}" alt="">
-							</div>
-						</div>
-						<h3>brain problem</h3>
-					</div>
-				</div>
-				<div class="col-md-3 col-sm-6">
-					<div class="single-service">
-						<div class="single-service-img">
-							<div class="service-img">
-								<img class="knee img-responsive" src="{% static 'img/service3.png' %}" alt="">
-							</div>
-						</div>
-						<h3>knee problem</h3>
-					</div>
-				</div>
-				<div class="col-md-3 col-sm-6">
-					<div class="single-service">
-						<div class="single-service-img">
-							<div class="service-img">
-								<img class="bone img-responsive" src="{% static 'img/service4.png' %}" alt="">
-							</div>
-						</div>
-						<h3>human bones problem</h3>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section><!-- end of service section -->
-
-
-	<!-- team section -->
-
-	<div class="api-map" id="contact">
-		<div class="container-fluid">
-			<div class="row">
-				<div class="col-md-12 map" id="map"></div>
-			</div>
-		</div>
-	</div><!-- end of map section -->
-
-	<!-- contact section starts here -->
 
 	<!-- footer starts here -->
 	<footer class="footer clearfix">
