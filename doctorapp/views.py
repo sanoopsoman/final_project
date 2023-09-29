@@ -127,8 +127,8 @@ def login2(request):
 
         return redirect('/admin1')
     elif user1 is not None and user1.is_superuser == 0:
-        x = tbl_account.objects.filter(account_type='doctor')
-        return redirect('/doctor')
+        # x = tbl_account.objects.filter(account_type='doctor')
+        return redirect('/user2')
 
 
     else:
@@ -238,7 +238,7 @@ def update_doctor1(request, id):
     a = doctor_detail.objects.get(id=id)
     b = tbl_account.objects.get(username=a.username)
     c = User.objects.get(username=b.username)
-    a.username = request.POST.get('uname')
+    # a.username = request.POST.get('uname')
     a.first_name = request.POST.get('fname')
     a.last_name = request.POST.get('lname')
     a.email = request.POST.get('email')
@@ -248,25 +248,25 @@ def update_doctor1(request, id):
     a.designation = request.POST.get('desig')
     a.qualification = request.POST.get('qualification')
     a.mob = request.POST.get('number')
-    a.gender = request.POST.get('gender')
+    # a.gender = request.POST.get('gender')
     photo = request.FILES['image']
     obj = FileSystemStorage()
     data = obj.save(photo.name, photo)
     x = obj.url(data)
     a.image = x
-    b.username = request.POST.get('uname')
+    # b.username = request.POST.get('uname')
     b.first_name = request.POST.get('fname')
     b.last_name = request.POST.get('lname')
     b.email = request.POST.get('email')
     b.account_type = "doctor"
-    c.username = request.POST.get('uname')
+    # c.username = request.POST.get('uname')
     c.first_name = request.POST.get('fname')
     c.last_name = request.POST.get('lname')
     c.email = request.POST.get('email')
-    password = request.POST.get('password')
-    c.set_password(password)
-    cpassword = request.POST.get('cpassword')
-    c.set_password(cpassword)
+    # password = request.POST.get('password')
+    # c.set_password(password)
+    # cpassword = request.POST.get('cpassword')
+    # c.set_password(cpassword)
     a.save()
     b.save()
     c.save()

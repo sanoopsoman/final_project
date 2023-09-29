@@ -87,9 +87,9 @@
 				<div class="form-group">
 		      			<input type="text" class="form-control" name="lname" value="{{ obj.last_name }}" placeholder="last_name" required>
 		      		</div>
-			<div class="form-group">
+			<!-- <div class="form-group">
 		      			<input type="" class="form-control" name="uname" value="{{ obj.username }}"  placeholder="Username" required>
-		      		</div>
+		      		</div> -->
 				<div class="form-group">
 		      			<input type="number" class="form-control" name="number" value="{{ obj.mob }}" placeholder="mobile number" required>
 		      		</div>
@@ -120,25 +120,25 @@
 
 
 				<div class="form-group">
-		      			<textarea name="address" class="form-control" value="{{ obj.address }}" cols="25" rows="4">address</textarea>
+		      			<textarea name="address" class="form-control" value="" cols="25" rows="4">{{ obj.address }}</textarea>
 		      		</div>
 				<div class="form-group">
 					<label>photo:</label>
 					<img src="{{ obj.image }}">
 		      			<input type="file" class="form-control" placeholder="upload photo" name="image"required>
 		      		</div>
-
+<!-- 
 						<label>gender:</label><br>
 		      			<input type="radio" class="" name="gender" value="male" required>male
-						<input type="radio" class="" name="gender" value="female">female
+						<input type="radio" class="" name="gender" value="female">female -->
 
-		      		<div class="form-group">
+		      		<!-- <div class="form-group">
 		      			<input name="password" type="password" class="form-control" value="{{ res.password }}" placeholder="Password" required>
-		      		</div>
-	            <div class="form-group">
+		      		</div> -->
+	            <!-- <div class="form-group">
 	              <input name="cpassword" type="password" class="form-control" value="{{ res.cpassword }}" placeholder="confirm Password" required>
 	              <span toggle="#password-field" class="fa fa-fw fa-eye field-icon toggle-password"></span>
-	            </div>
+	            </div> -->
 	            <div class="form-group">
 	            	<button type="submit" class="form-control btn btn-success submit px-3">UPDATE</button>
 	            </div>
