@@ -56,17 +56,32 @@ class doctor_detail(models.Model):
 
 
 class tbl_appoinment(models.Model):
-    name=models.CharField(max_length=50)
-    age=models.IntegerField()
-    email=models.CharField(max_length=40)
-    specialization=models.CharField(max_length=30)
-    doctor=models.CharField(max_length=50)
-    gender=models.CharField(max_length=10)
-    image=models.CharField(max_length=500)
-    address=models.TextField()
-    date=models.DateField()
-    time=models.TimeField()
-    symtoms=models.TextField()
-    mob=models.IntegerField()
+    name = models.CharField(max_length=50)
+    age = models.IntegerField()
+    email = models.CharField(max_length=40)
+    specialization = models.CharField(max_length=30)
+    doctor = models.CharField(max_length=50)
+    gender = models.CharField(max_length=10)
+    image = models.CharField(max_length=500)
+    address = models.TextField()
+    date = models.DateField()
+    time = models.TimeField()
+    symtoms = models.TextField()
+    photo = models.ImageField(upload_to='gallery')
+    fee = models.IntegerField()
+    mob = models.IntegerField()
+
     class meta:
-        db_book="appoinment"
+        db_book = "appoinment"
+
+
+class doctor_availability(models.Model):
+    name = models.CharField(max_length=30)
+    day = models.TextField()
+    start_time = models.TimeField()
+    end_time = models.TimeField()
+    fee = models.IntegerField()
+    status = models.BooleanField(default=True)
+
+    class meta:
+        db_doctor = "doctor_availability"

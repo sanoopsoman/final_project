@@ -50,5 +50,7 @@ urlpatterns = [
     path('user_update1/<int:id>', views.user_update1, name='user_update1'),
     path('user_delete/<int:id>',views.user_delete,name='user_delete'),
     path('admin_service/',views.admin_service,name='admin_service'),
+    path('user_booking/<int:id>',views.user_booking,name='user_booking'),
+    path('book_slot/',views.book_slot,name='book_slot'),
 
 ]

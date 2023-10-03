@@ -6,7 +6,7 @@ from django.http import HttpResponse
 from django.shortcuts import render, redirect
 
 # Create your views here.
-from doctorapp.models import tbl_register, tbl_account, doctor_detail, about_us, tbl_appoinment
+from doctorapp.models import tbl_register, tbl_account, doctor_detail, about_us, tbl_appoinment, doctor_availability
 
 
 def index(request):
@@ -128,7 +128,7 @@ def login2(request):
         return redirect('/admin1')
     elif user1 is not None and user1.is_superuser == 0:
         x = tbl_account.objects.get(username=user1)
- 
+
         if x.account_type == "doctor":
             return redirect('/doctor')
 
@@ -137,7 +137,6 @@ def login2(request):
     else:
 
         return HttpResponse('invalid username or password')
-
 
 
 def user2(request):
@@ -547,6 +546,26 @@ def user_delete(request, id):
 
 
 def admin_service(request):
-    a=about_us.objects.all()
-    b=doctor_detail.objects.all()
-    return render(request, 'admin_service.html',{'obj':a,'res':b})
+    a = about_us.objects.all()
+    b = doctor_detail.objects.all()
+    return render(request, 'admin_service.html', {'obj': a, 'res': b})
+
+
+def user_booking(request, id):
+    a = request.session['username']
+    b = tbl_register.objects.get(id=id)
+    return render(request, 'user_booking.html', {'obj': a, 'var': b})
+
+
+def book_slot(request):
+    a = doctor_availability()
+    a.name = request.POST.get('name')
+    a.day = request.POST.get('dates')
+    a.start_time = request.POST.get('stime')
+    a.end_time = request.POST.get('etime')
+    a.fee = request.POST.get('fee')
+    a.status = request.POST.get('status')
+    print(a)
+    a.save()
+    messages.success(request,"the selected days"+request.POST.get('dates')+"is saved successfully")
+    return redirect('/doctor')

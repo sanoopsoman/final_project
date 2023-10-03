@@ -17,40 +17,11 @@
       <script src="{% static 'js/html5shiv.js' %}"></script>
       <script src="{% static 'js/respond.min.js' %}"></script>
     <![endif]-->
-    <style>
-        /* Container needed to position the button. Adjust the width as needed */
-.container-fluid .book {
-  position: relative;
-  width: 100%;
-  padding-top:140px;
-}
-
-/* Make the image responsive */
-.ibook {
-  width: 100%;
-  height: auto;
-}
-
-/* Style the button and place it in the middle of the container/image */
-.container .btn1 {
-  position: absolute;
-  top: 70%;
-  left: 20%;
-  transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
-  background-color: #42b3e5;
-  color: white;
-  font-size: 30px;
-  padding: 12px 24px;
-  border: none;
-  cursor: pointer;
-  border-radius: 5px;
-}
-
-.container .btn:hover {
-  background-color: black;
-}
-    </style>
+<style>
+	.btn2:hover{
+	     color:gray;
+	     }
+</style>
 
 </head>
 <body>
@@ -107,15 +78,12 @@
 			</div>
 		</div>
 	</header> <!-- end of header area -->
-<div class="container-fluid" style="width:100%;">
-	<div class="container book">
-  <img class="ibook" src="{% static 'img/slide-two.jpg' %}" alt="Snow">
-		<button type="button" class="btn1"><a href="/user_booking/{{res.id}}">Book Appoinment...!!</a></button>
-</div>
 
-    </div>
 
 <div class="container-fluid">
+<!--	-->
+
+	<div class="container-fluid">
 <!--	-->
 
 	<div class="service" class="services wow fadeIn" style="padding-top:130px;margin-top:30px;">
@@ -168,72 +136,53 @@
                   </div>
                </div>
                <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-                  <div class="appointment-form">
-                     <h3 style=""><span>+</span> Book Appointment</h3>
-                     <div class="form">
-                        <form action="index.html">
-                           <fieldset>
-                              <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                 <div class="row">
-                                    <div class="form-group">
-                                       <input type="text" id="name" class="form-control" placeholder="enter Your Name">
-                                    </div>
-                                 </div>
-                              </div>
-                              <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                 <div class="row">
-                                    <div class="form-group">
-                                       <input type="email" class="form-control" placeholder="enter your Email Address" id="email" />
-                                    </div>
-                                 </div>
-                              </div>
-                              <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 select-section">
-                                 <div class="row">
-                                    <div class="form-group">
-                                       <input type="date" name="date" class="form-control" placeholder="date">
-                                    </div>
-                                    <div class="form-group">
-                                       <input type="time" name="time" placeholder="time" class="form-control">
-                                    </div>
-                                 </div>
-                              </div>
-                              <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                 <div class="row">
-                                    <div class="form-group">
-                                       <select class="form-control">
-                                          <option>specialization</option>
-                                          <option>cardiology</option>
-                                          <option>neurology</option>
-										   <option>dermatology</option>
-										   <option>children specialist</option>
-										   <option></option>
-                                       </select>
-                                    </div>
-                                 </div>
-                              </div>
-                              <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                 <div class="row">
-                                    <div class="form-group">
-                                       <textarea rows="4" id="textarea_message" class="form-control" placeholder="Your symptoms..."></textarea>
-                                    </div>
-                                 </div>
-                              </div>
-                              <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                 <div class="row">
-                                    <div class="form-group">
-                                       <div class="center"><button type="submit">Book Appoinment</button></div>
-                                    </div>
-                                 </div>
-                              </div>
-                           </fieldset>
-                        </form>
-                     </div>
-                  </div>
+
+				   <h3><span>+</span>Book Appoinment..</h3>
+				   <form action="" method="" enctype="multipart/form-data">
+					   <label>Booking For:</label><br>
+					   <input type="radio" name="self">self
+					   <input type="radio" name="others"> others
+					   <div class="form-group">
+						   <label>username:</label><br>
+						   <input type="text" name="uname" class="form-control" placeholder="enter username">
+					   </div>
+					   <div class="form-group">
+						   <label>specialization:</label><br>
+						   <select class="form-control">
+							   <option>cardiology</option>
+							   <option>dermatology</option>
+							   <option>children specialist</option>
+							   <option>neurology</option>
+							   <option>gynecology</option>
+							   <option></option>
+							   </select>
+					   </div>
+					   <div class="form-group">
+						   <label>appoinment day:</label><br>
+						   <input type="date" name="uname" class="form-control">
+					   </div>
+					   <div class="form-group">
+						   <label>doctor:</label><br>
+						   <select class="form-control">
+							   <option>sf</option>
+							   <option>asfasf</option>
+							   <option>v bvb</option>
+							   <option>xbc  </option>
+							   <option>asfasf</option>
+						   </select>
+					   </div>
+					    <div class="form-group">
+							<button type="button" class="btn btn-primary form-control">Next</button>
+					   </div>
+
+
+				   </form>
                </div>
             </div>
          </div>
       </div>
 </div>
+
 
 
 
