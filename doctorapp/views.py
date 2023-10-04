@@ -560,12 +560,12 @@ def user_booking(request, id):
 def book_slot(request):
     a = doctor_availability()
     a.name = request.POST.get('name')
-    a.day = request.POST.get('dates')
+    a.day = request.POST.getlist('days')
     a.start_time = request.POST.get('stime')
     a.end_time = request.POST.get('etime')
     a.fee = request.POST.get('fee')
-    a.status = request.POST.get('status')
-    print(a)
+    a.status =True
+    print(a.day)
     a.save()
     messages.success(request,"the selected days"+request.POST.get('dates')+"is saved successfully")
     return redirect('/doctor')
