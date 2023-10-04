@@ -177,20 +177,21 @@
 					<div class="col-md-6 col-md-offset-1">
 						<h3>book slots</h3>
 
-						<form action="/book_slot/" method="" enctype="multipart/form-data">
+						<form action="/book_slot/" method="POST" enctype="multipart/form-data">
+							{% csrf_token %} 
 							<div class="form-group">
 							<label>Doctor name:</label>
 								<input type="text" name="name"  value="{{ x.username }}" class="form-control"  placeholder="Doctor Name">
 								</div>
 
 								<label>Available day:</label><br>
-							<input type="checkbox"  name="available" class="chkdates" value="monday">monday
-							<input type="checkbox" name="available1" class="chkdates" value="tuesday">tuessday
-							<input type="checkbox" name="available2" class="chkdates" value="wednesday">wednesday
-							<input type="checkbox" name="available3" class="chkdates" value="thursday">thursday
-							<input type="checkbox" name="available4" class="chkdates" value="friday">friday
-							<input type="checkbox" name="available5" class="chkdates" value="saturday">satueday
-							<input type="checkbox" name="available6" class="chkdates" value="sunday">sunday
+							<input type="checkbox"  name="days" class="chkdates" value="monday">monday
+							<input type="checkbox" name="days" class="chkdates" value="tuesday">tuessday
+							<input type="checkbox" name="days" class="chkdates" value="wednesday">wednesday
+							<input type="checkbox" name="days" class="chkdates" value="thursday">thursday
+							<input type="checkbox" name="days" class="chkdates" value="friday">friday
+							<input type="checkbox" name="days" class="chkdates" value="saturday">satueday
+							<input type="checkbox" name="days" class="chkdates" value="sunday">sunday
 								<div class="form-group">
 									<input type="text" name="dates"  id="display" class="form-control" readonly/>
 								</div>
@@ -206,10 +207,10 @@
 								<label>fee:</label>
 								<input type="number" name="fee" class="form-control">
 							</div>
-					        <div class="form-group">
+					        <!-- <div class="form-group">
 								<label>status:</label>
 								<input type="text" name="status" class="form-control" placeholder="status">
-							</div>
+							</div> -->
 
 							<input class="submit-btn" type="submit" value="SUBMIT">
 						</form>
