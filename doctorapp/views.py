@@ -554,7 +554,9 @@ def admin_service(request):
 def user_booking(request, id):
     a = request.session['username']
     b = tbl_register.objects.get(id=id)
-    return render(request, 'user_booking.html', {'obj': a, 'var': b})
+    c = doctor_availability.objects.all()
+    d = doctor_detail.objects.filter(specialization='neurology')
+    return render(request, 'user_booking.html', {'obj': a, 'var': b, 'str': c, 'py': d})
 
 
 def book_slot(request):
@@ -564,8 +566,34 @@ def book_slot(request):
     a.start_time = request.POST.get('stime')
     a.end_time = request.POST.get('etime')
     a.fee = request.POST.get('fee')
-    a.status =True
+    a.specialization = request.POST.get('special')
+    a.status = True
     print(a.day)
     a.save()
-    messages.success(request,"the selected days"+request.POST.get('dates')+"is saved successfully")
+    messages.success(request, "the selected days" + request.POST.get('dates') + "is saved successfully")
     return redirect('/doctor')
+
+
+def user_booking1(request, id):
+    a = request.session['username']
+    b = tbl_register.objects.get(id=id)
+    c = tbl_appoinment()
+    c.booking_type = request.POST.get('type')
+    c.username = request.POST.get('uname')
+    c.specialization = request.POST.get('special')
+    c.doctor = request.POST.get('dname')
+    c.save()
+    if c.booking_type == 'self':
+        x = tbl_register.objects.get(id=id)
+        return render(request, 'user_booking1.html', {'obj': a, 'var': b, 'py': c,'bg':x})
+    else:
+        return render(request, 'user_booking1.html', {'obj': a, 'var': b, 'py': c,})
+
+
+
+
+def user_booking2(request, id):
+    a = request.session['username']
+    b = tbl_register.objects.get(id=id)
+    c = doctor_detail.objects.all()
+    return render(request, 'user_booking2.html', {'obj': a, 'var': b, 'str': c})

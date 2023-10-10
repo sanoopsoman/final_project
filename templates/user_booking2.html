@@ -57,7 +57,7 @@
 					        <li><a class="menu" href="/user_service/">services</a></li>
 					        <li><a class="menu" href="/user_doctor/">Doctors</a></li>
 					        <li><a class="menu" href="/user_appoinment/">appoinment</a></li>
-                              <li><a class="menu" href="/user_contact/">contact us </a></li>
+<!--                              <li><a class="menu" href="/user_contact/">contact us </a></li>-->
 					      </ul>
 					    </div><!-- /navbar-collapse -->
 					  </div><!-- / .container-fluid -->
@@ -137,34 +137,40 @@
                <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
 
 				   <h3><span>+</span>Book Appoinment..</h3>
-				   <form action="" method="POST" enctype="multipart/form-data">
-					   {% csrf_token %}
-					   <label>Booking For:</label><br>
-					   <input type="radio" name="type" value="self">self
-					   <input type="radio" name="type" value="others"> others
-					   <div class="form-group">
-						   <label>username:</label><br>
-						   <input type="text" name="uname" class="form-control" value="{{obj}}"/>
-					   </div>
-					   <div class="form-group">
-						   <label>specialization:</label><br>
-						   <select class="form-control" name="special">
-							   {% for i in str %}
-							   <option name="special">{{ i.specialization }}</option>
-							   {% endfor %}
-							   </select>
+				   <form action="" method="" enctype="multipart/form-data">
 
 					   <div class="form-group">
-						   <label>doctor:</label><br>
-						   <select class="form-control" name="dname">
-							   {% for i in py %}
-							   <option name="dname">{{ i.username }}</option>
-							  {% endfor %}
-						   </select>
+						   <label>booking day:</label><br>
+						   <input type="date" name="date" class="form-control" >
+					   </div>
+					     <div class="form-group">
+						   <label>booking time:</label><br>
+						   <input type="time" name="time" class="form-control" >
 					   </div>
 					    <div class="form-group">
-							<button type="button" class="btn btn-primary form-control"><a href="/user_booking1/{{var.id}}">Next</a></button>
+						   <label>id proof:</label><br>
+                            <select class="form-control">
+                                <option>Voter id</option>
+                                <option>adhar card</option>
+                                <option>pan card</option>
+                                <option>driving license</option>
+                                <option>passport</option>
+
+                            </select>
+
 					   </div>
+					    <label>upload proof:</label><br>
+					   <input type="file" name="file">
+
+					   <div class="form-group">
+						   <label>Fee:</label><br>
+						   <input type="number" name="fee" class="form-control">
+					   </div>
+					    <div class="form-group">
+							<button type="button" class="btn btn-primary form-control">Next</button>
+					   </div>
+
+
 				   </form>
                </div>
             </div>
@@ -263,5 +269,5 @@
 		</div>
 	</footer>
 
- </body>
+  </body>
 </html>

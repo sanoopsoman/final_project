@@ -56,6 +56,8 @@ class doctor_detail(models.Model):
 
 
 class tbl_appoinment(models.Model):
+    booking_type = models.CharField(max_length=10)
+    username=models.CharField(max_length=30)
     name = models.CharField(max_length=50)
     age = models.IntegerField()
     email = models.CharField(max_length=40)
@@ -70,6 +72,10 @@ class tbl_appoinment(models.Model):
     photo = models.ImageField(upload_to='gallery')
     fee = models.IntegerField()
     mob = models.IntegerField()
+    status = models.CharField(max_length=20)
+    image1 = models.CharField(max_length=500)
+    id_proof = models.CharField(max_length=30)
+
 
     class meta:
         db_book = "appoinment"
@@ -77,6 +83,7 @@ class tbl_appoinment(models.Model):
 
 class doctor_availability(models.Model):
     name = models.CharField(max_length=30)
+    specialization=models.CharField(max_length=30)
     day = models.TextField()
     start_time = models.TimeField()
     end_time = models.TimeField()
@@ -85,3 +92,5 @@ class doctor_availability(models.Model):
 
     class meta:
         db_doctor = "doctor_availability"
+
+
