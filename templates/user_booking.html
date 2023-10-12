@@ -16,6 +16,10 @@
 	<script src="{% static 'js/modernizr.js' %}"></script>
       <script src="{% static 'js/html5shiv.js' %}"></script>
       <script src="{% static 'js/respond.min.js' %}"></script>
+<<<<<<< HEAD
+=======
+    <!-- <![endif]--> 
+>>>>>>> ac2dfc55fdfe171ffeca25820eb955dcc06a79c7
 <style>
 	.btn2:hover{
 	     color:gray;
@@ -29,7 +33,7 @@
 		<header class="top-header">
 		<div class="container">
             <div class="col-md-3 header-logo" style="height:130px;">
-					<h4 style="">{{ obj }}.</h4>
+					<h4 >{{ obj }}.</h4>
 				<button type="button" class="btn btn-danger"><a href="/logout/">logout</a></button>
 					<br>
 					<a href="/patient_data/{{res.id}}"><img src="{{ var.image }}" width="150px" height="100px" alt=""style="border-radius:100%;margin-left:60px;"></a>
@@ -64,7 +68,7 @@
 				</div>
 
 
-            <div class="row" style="border:height:130px;">
+            <div class="row" style="border-height:130px;">
 				  <div class="col-xs-3 header-logo">
 					<br>
 					<a href="/"><img src="{% static 'img/logo.png' %}" alt="" class="img-responsive logo"></a>
@@ -136,7 +140,7 @@
                <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
 
 				   <h3><span>+</span>Book Appoinment..</h3>
-				   <form action="/user_booking1/" method="POST" enctype="multipart/form-data">
+				   <form action="/user_booking1/" method="post" enctype="multipart/form-data">
 					   {% csrf_token %}
 					   <label>Booking For:</label><br>
 					   <input type="radio" name="type" value="self">self

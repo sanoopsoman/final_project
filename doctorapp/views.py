@@ -551,11 +551,7 @@ def admin_service(request):
     return render(request, 'admin_service.html', {'obj': a, 'res': b})
 
 
-def user_booking(request):
-    a = request.session['username']
-    c = doctor_availability.objects.all()
-    d = doctor_detail.objects.filter(specialization='neurology')
-    return render(request, 'user_booking.html', {'obj': a, 'str': c, 'py': d})
+
 
 
 def book_slot(request):
@@ -571,19 +567,24 @@ def book_slot(request):
     a.save()
     messages.success(request, "the selected days" + request.POST.get('dates') + "is saved successfully")
     return redirect('/doctor')
-
+def user_booking(request):
+    a = request.session['username']
+    c = doctor_availability.objects.all()
+    d = doctor_detail.objects.filter(specialization='neurology')
+    return render(request, 'user_booking.html', {'obj': a, 'str': c, 'py': d})
 
 def user_booking1(request):
     a = request.session['username']
     # b = tbl_register.objects.get(id=id)
     c = tbl_appoinment()
-    # c.booking_type = request.POST.get('type')
-    # print(c.booking_type,'text111')
+    c.booking_type = request.POST.get('type')
+    print(c.booking_type,'text111')
     c.username = request.POST.get('uname')
     print(c.username,'heloooo')
     c.specialization = request.POST.get('special')
     c.doctor = request.POST.get('dname')
     c.status="form1"
+    c.age=11
     c.save()
     if c.booking_type == 'self':
 
