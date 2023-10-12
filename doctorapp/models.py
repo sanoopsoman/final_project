@@ -59,7 +59,7 @@ class tbl_appoinment(models.Model):
     booking_type = models.CharField(max_length=10)
     username=models.CharField(max_length=30)
     name = models.CharField(max_length=50)
-    age = models.IntegerField()
+    age = models.IntegerField(default=None)
     email = models.CharField(max_length=40)
     specialization = models.CharField(max_length=30)
     doctor = models.CharField(max_length=50)
