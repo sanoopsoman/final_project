@@ -1,5 +1,5 @@
 from django.db import models
-
+import datetime
 
 # Create your models here.
 class about_us(models.Model):
@@ -66,13 +66,13 @@ class tbl_appoinment(models.Model):
     gender = models.CharField(max_length=10)
     image = models.CharField(max_length=500)
     address = models.TextField(default='data')
-    date = models.DateField(default=True)
-    time = models.TimeField(default=True)
+    date = models.DateField(default=datetime.datetime.now())
+    time = models.TimeField(default=datetime.datetime.now())
     symtoms = models.TextField(default='text')
     photo = models.ImageField(upload_to='gallery')
     fee = models.IntegerField(default=True)
-    mob = models.IntegerField(default='num')
-    status = models.CharField(max_length=20,default=True)
+    mob = models.IntegerField(default=00)
+    status = models.CharField(max_length=20)
     image1 = models.CharField(max_length=500)
     id_proof = models.CharField(max_length=30)
 

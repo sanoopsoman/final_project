@@ -587,15 +587,53 @@ def user_booking1(request):
     c.age=11
     c.save()
     if c.booking_type == 'self':
-
-        x = tbl_register.objects.get(username=a,status='form1')
+        print("test11")
+        x = tbl_appoinment.objects.get(username=a,status='form1')
         return render(request, 'user_booking1.html', {'obj': a, 'py': c, 'bg': x})
     else:
         return render(request, 'user_booking1.html', {'obj': a, 'py': c, })
 
 
-def user_booking2(request, id):
+def user_booking2(request):
     a = request.session['username']
-    b = tbl_register.objects.get(id=id)
-    c = doctor_detail.objects.all()
-    return render(request, 'user_booking2.html', {'obj': a, 'var': b, 'str': c})
+    id = request.POST.get('id')
+    c = tbl_appoinment.objects.get(id=id,status="form1")
+   
+    c.name=request.POST.get('uname')
+    c.age=request.POST.get('age')
+    c.gender=request.POST.get('gen')
+    c.mob=request.POST.get('mob')
+    c.email=request.POST.get('email')
+    c.status="form2"
+    c.symtoms=request.POST.get('symptoms')
+    photo = request.FILES['image']
+    obj = FileSystemStorage()
+    data = obj.save(photo.name, photo)
+    x = obj.url(data)
+    c.image = x
+    # photo
+    c.save()
+    if c.status=="form2":
+         b = doctor_detail.objects.all()
+         c= tbl_appoinment.objects.get(username=a,status="form2")
+         return render(request, 'user_booking2.html', {'obj': a, 'var': c, 'str': b})
+    else:
+        return render(request, 'user_booking2.html', {'obj': a, 'var': c, 'str': b})
+
+def user_booking3(request):
+    a = request.session['username']
+    id = request.POST.get('id')
+    print(id,"AAAAAAAAAAAAAAAAAA")
+    c = tbl_appoinment.objects.get(id=id)
+    c.date=request.POST.get('date')
+    c.time=request.POST.get('time')
+    c.id_proof=request.POST.get('idproof')
+    photo = request.FILES['image']
+    obj = FileSystemStorage()
+    data = obj.save(photo.name, photo)
+    x = obj.url(data)
+    c.image1 = x
+    c.fee=request.POST.get('fee')
+    c.status="Booked"
+    c.save()
+    return redirect('/user2/')
