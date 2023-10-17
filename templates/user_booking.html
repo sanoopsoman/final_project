@@ -140,7 +140,7 @@
                <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
 
 				   <h3><span>+</span>Book Appoinment..</h3>
-				   <form action="/user_booking1/" method="post" enctype="multipart/form-data">
+				   <form action="/user_booking1/{{var.id}}" method="post" enctype="multipart/form-data">
 					   {% csrf_token %}
 					   <label>Booking For:</label><br>
 					   <input type="radio" name="type" value="self">self

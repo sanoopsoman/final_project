@@ -568,14 +568,16 @@ def book_slot(request):
 
 def user_booking(request):
     a = request.session['username']
+    b=tbl_register.objects.get(username=a)
     c = doctor_availability.objects.all()
     d = doctor_detail.objects.filter(specialization='neurology')
-    return render(request, 'user_booking.html', {'obj': a, 'str': c, 'py': d})
+    return render(request, 'user_booking.html', {'obj': a, 'str': c, 'py': d,'var':b})
 
 
-def user_booking1(request):
+def user_booking1(request,id):
     a = request.session['username']
     c = tbl_appoinment()
+    d=tbl_register.objects.get(id=id)
     c.booking_type = request.POST.get('type')
     print(c.booking_type, 'text111')
     c.username = request.POST.get('uname')
@@ -585,12 +587,16 @@ def user_booking1(request):
     c.status = "form1"
     c.age = 11
     c.save()
+
     if c.booking_type == 'self':
         print("test11")
         x = tbl_appoinment.objects.get(username=a, status='form1')
-        return render(request, 'user_booking1.html', {'obj': a, 'py': c, 'bg': x})
+
+        return render(request, 'user_booking1.html', {'obj': a, 'py': c, 'bg': x,'str':d})
+
     else:
-        return render(request, 'user_booking1.html', {'obj': a, 'py': c})
+        b=tbl_appoinment.objects.get(username=a,status='form1')
+        return render(request, 'user_booking1.html', {'obj': a, 'py': c,'var':b})
 
 
 def user_booking2(request):
