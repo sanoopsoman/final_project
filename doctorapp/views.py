@@ -591,7 +591,8 @@ def user_booking1(request):
         x = tbl_appoinment.objects.get(username=a,status='form1')
         return render(request, 'user_booking1.html', {'obj': a, 'py': c, 'bg': x})
     else:
-        return render(request, 'user_booking1.html', {'obj': a, 'py': c, })
+        data = tbl_appoinment.objects.get(username=a,status='form1',booking_type="others")
+        return render(request, 'user_booking1.html', {'obj': a, 'py': c,'id':data })
 
 
 def user_booking2(request):
@@ -618,6 +619,8 @@ def user_booking2(request):
          c= tbl_appoinment.objects.get(username=a,status="form2")
          return render(request, 'user_booking2.html', {'obj': a, 'var': c, 'str': b})
     else:
+        b = doctor_detail.objects.all()
+        c= tbl_appoinment.objects.get(username=a,status="form2")
         return render(request, 'user_booking2.html', {'obj': a, 'var': c, 'str': b})
 
 def user_booking3(request):

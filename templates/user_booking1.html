@@ -139,8 +139,11 @@
 				   <h3><span>+</span>Book Appoinment..</h3>
 				   <form action="/user_booking2/" method="post" enctype="multipart/form-data">
 					{% csrf_token %} 
+					{% if id is not None %}
+					<input type="text" name="id" class="form-control" value="{{ id.id}}" hidden>
+					{% else %}
 					<input type="text" name="id" class="form-control" value="{{ bg.id}}" hidden>
-
+					{% endif %}
 					   <div class="form-group">
 						   <label>patient name:</label><br>
 						   <input type="text" name="uname" class="form-control" value="{{ bg.username}}" placeholder="patient name">
