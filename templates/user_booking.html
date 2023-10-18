@@ -140,7 +140,7 @@
                <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
 
 				   <h3><span>+</span>Book Appoinment..</h3>
-				   <form action="/user_booking1/{{var.id}}" method="post" enctype="multipart/form-data">
+				   <form action="/user_booking1/" method="post" enctype="multipart/form-data">
 					   {% csrf_token %}
 					   <label>Booking For:</label><br>
 					   <input type="radio" name="type" value="self">self
@@ -161,10 +161,12 @@
 					   <div class="form-group">
 						   <label>doctor:</label><br>
 						   <select class="form-control" name="dname">
-							   {% for i in py %}
-							   <option name="dname">{{ i.username }}</option>
-							  {% endfor %}
-						   </select>
+							   {% for i in int %}
+							   <option name="dname">{{ i.name }}</option>
+							   {% endfor %}
+
+								  </select>
+
 					   </div>
 					    <div class="form-group">
 							<input type="submit" value="Next" class="btn btn-primary form-control">

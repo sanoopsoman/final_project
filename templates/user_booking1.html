@@ -33,7 +33,7 @@
 					<h4 style="">{{ obj }}.</h4>
 				<button type="button" class="btn btn-danger"><a href="/logout/">logout</a></button>
 					<br>
-					<a href="/patient_data/{{res.id}}"><img src="{{ var.image }}" width="150px" height="100px" alt=""style="border-radius:100%;margin-left:60px;"></a>
+					<a href="/patient_data/{{res.id}}"><img src="{{ str.image }}" width="150px" height="100px" alt=""style="border-radius:100%;margin-left:60px;"></a>
 				</div>
 
 				<div class="col-md-6" style="padding-right:20px;">
@@ -139,8 +139,11 @@
 				   <h3><span>+</span>Book Appoinment..</h3>
 				   <form action="/user_booking2/" method="post" enctype="multipart/form-data">
 					{% csrf_token %} 
+					{% if id is not None %}
+					<input type="text" name="id" class="form-control" value="{{ id.id}}" hidden>
+					{% else %}
 					<input type="text" name="id" class="form-control" value="{{ bg.id}}" hidden>
-
+					{% endif %}
 					   <div class="form-group">
 						   <label>patient name:</label><br>
 						   <input type="text" name="uname" class="form-control" value="{{ bg.username}}" placeholder="patient name">
@@ -159,15 +162,21 @@
 
 
 					   <div class="form-group">
+
 						   <label>email:</label><br>
 						   <input type="email" name="email" value="{{ str.email }}" class="form-control" placeholder="email">
 
 
 					   </div>
 					    <div class="form-group">
-						   <label>photo:</label><br>
-						   <input type="file" name="image" value="{{ str.image }}" class="form-control" placeholder="email">
 
+						   <label>photo:</label><br>
+							{% if bg.booking_type == "self" %}
+							<img src="{{ str.image }}">
+							{% else %}
+
+						   <input type="file" name="image" value="{{ str.image }}" class="form-control">
+							{% endif %}
 
 					   </div>
 					    <div class="form-group">

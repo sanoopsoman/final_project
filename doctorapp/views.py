@@ -568,16 +568,19 @@ def book_slot(request):
 
 def user_booking(request):
     a = request.session['username']
-    b=tbl_register.objects.get(username=a)
+    b = tbl_register.objects.get(username=a)
     c = doctor_availability.objects.all()
-    d = doctor_detail.objects.filter(specialization='neurology')
-    return render(request, 'user_booking.html', {'obj': a, 'str': c, 'py': d,'var':b})
+    d = doctor_availability.objects.filter(specialization='neurology')
+    e = doctor_availability.objects.filter(specialization='cardiology')
+    f = doctor_availability.objects.filter(specialization='Family physician')
+    return render(request, 'user_booking.html', {'obj': a, 'str': c, 'py': d, 'var': b, 'data': e, 'int': f})
 
 
-def user_booking1(request,id):
+def user_booking1(request):
     a = request.session['username']
+    id = request.POST.get('id')
     c = tbl_appoinment()
-    d=tbl_register.objects.get(id=id)
+    d = tbl_register.objects.get(username=a)
     c.booking_type = request.POST.get('type')
     print(c.booking_type, 'text111')
     c.username = request.POST.get('uname')
@@ -589,40 +592,75 @@ def user_booking1(request,id):
     c.save()
 
     if c.booking_type == 'self':
-        print("test11")
-        x = tbl_appoinment.objects.get(username=a, status='form1')
 
-        return render(request, 'user_booking1.html', {'obj': a, 'py': c, 'bg': x,'str':d})
+        print("test11")
+        x = tbl_appoinment.objects.get(username=a, status='form1', booking_type="self")
+
+        return render(request, 'user_booking1.html', {'obj': a, 'py': c, 'bg': x, 'str': d})
 
     else:
-        b=tbl_appoinment.objects.get(username=a,status='form1')
-        return render(request, 'user_booking1.html', {'obj': a, 'py': c,'var':b})
+        data = tbl_appoinment.objects.get(username=a, status='form1', booking_type="others")
+        return render(request, 'user_booking1.html', {'obj': a, 'py': c, 'id': data})
 
 
 def user_booking2(request):
     a = request.session['username']
     id = request.POST.get('id')
     c = tbl_appoinment.objects.get(id=id, status="form1")
+    if c.booking_type == "self":
+        try:
+            c.name = request.POST.get('uname')
+            c.age = request.POST.get('age')
+            c.gender = request.POST.get('gen')
+            c.mob = request.POST.get('mob')
+            c.email = request.POST.get('email')
+            c.status = "form2"
+            c.symtoms = request.POST.get('symptoms')
+            photo = request.FILES['image']
+            obj = FileSystemStorage()
+            data = obj.save(photo.name, photo)
+            x = obj.url(data)
+            c.image = x
+            # photo
+            c.save()
+        except:
+            c.name = request.POST.get('uname')
+            c.age = request.POST.get('age')
+            c.gender = request.POST.get('gen')
+            c.mob = request.POST.get('mob')
+            c.email = request.POST.get('email')
+            c.status = "form2"
+            c.symtoms = request.POST.get('symptoms')
+            photo = request.FILES['image']
+            obj = FileSystemStorage()
+            data = obj.save(photo.name, photo)
+            x = obj.url(data)
+            c.image = x
+            # photo
+            c.save()
+    # else:
+    #     c.name = request.POST.get('uname')
+    #     c.age = request.POST.get('age')
+    #     c.gender = request.POST.get('gen')
+    #     c.mob = request.POST.get('mob')
+    #     c.email = request.POST.get('email')
+    #     c.status = "form2"
+    #     c.symtoms = request.POST.get('symptoms')
+    #     photo = request.FILES['image']
+    #     obj = FileSystemStorage()
+    #     data = obj.save(photo.name, photo)
+    #     x = obj.url(data)
+    #     c.image = x
+    #     # photo
+    #     c.save()
 
-    c.name = request.POST.get('uname')
-    c.age = request.POST.get('age')
-    c.gender = request.POST.get('gen')
-    c.mob = request.POST.get('mob')
-    c.email = request.POST.get('email')
-    c.status = "form2"
-    c.symtoms = request.POST.get('symptoms')
-    photo = request.FILES['image']
-    obj = FileSystemStorage()
-    data = obj.save(photo.name, photo)
-    x = obj.url(data)
-    c.image = x
-    # photo
-    c.save()
     if c.status == "form2":
-        b = doctor_detail.objects.all()
+        b = doctor_availability.objects.get(id=id)
         c = tbl_appoinment.objects.get(username=a, status="form2")
         return render(request, 'user_booking2.html', {'obj': a, 'var': c, 'str': b})
     else:
+        b = doctor_availability.objects.get(id=id)
+        c = tbl_appoinment.objects.get(username=a, status="form2")
         return render(request, 'user_booking2.html', {'obj': a, 'var': c, 'str': b})
 
 

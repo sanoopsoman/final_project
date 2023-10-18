@@ -141,12 +141,23 @@
 {% csrf_token %}
 					   <div class="form-group">
 						<input type="text" name="id" value="{{ var.id }}" class="form-control" hidden >
-						   <label>booking day:</label><br>
-						   <input type="date" name="date" class="form-control" >
+					   </div>
+					    <div class="form-group">
+						   <label>booking day:</label>
+						   <select>
+							   {% for i in str %}
+						   <option>{{ i.day }}</option>
+							   {% endfor %}
+
+							   </select>
+
+
 					   </div>
 					     <div class="form-group">
 						   <label>booking time:</label><br>
-						   <input type="time" name="time" class="form-control" >
+						  <select>
+							  <option></option>
+						  </select>
 					   </div>
 					    <div class="form-group">
 						   <label>id proof:</label><br>

@@ -52,7 +52,7 @@ urlpatterns = [
     path('admin_service/',views.admin_service,name='admin_service'),
     path('user_booking/',views.user_booking,name='user_booking'),
     path('book_slot/',views.book_slot,name='book_slot'),
-    path('user_booking1/<int:id>', views.user_booking1, name='user_booking1'),
+    path('user_booking1/', views.user_booking1, name='user_booking1'),
     path('user_booking2/', views.user_booking2, name='user_booking2'),
      path('user_booking3/', views.user_booking3, name='user_booking3'),
 
