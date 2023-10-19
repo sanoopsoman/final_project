@@ -144,6 +144,16 @@
 					{% else %}
 					<input type="text" name="id" class="form-control" value="{{ bg.id}}" hidden>
 					{% endif %}
+					<div class="form-group">
+						<label>doctor:</label><br>
+						<select class="form-control" name="dname">
+							{% for i in dc %}
+							<option name="dname">{{ i }}</option>
+							{% endfor %}
+
+							   </select>
+
+					</div>
 					   <div class="form-group">
 						   <label>patient name:</label><br>
 						   <input type="text" name="uname" class="form-control" value="{{ bg.username}}" placeholder="patient name">
@@ -172,10 +182,11 @@
 
 						   <label>photo:</label><br>
 							{% if bg.booking_type == "self" %}
+						
 							<img src="{{ str.image }}">
 							{% else %}
-
-						   <input type="file" name="image" value="{{ str.image }}" class="form-control">
+hiii
+						   <input type="file" name="image" value="" class="form-control">
 							{% endif %}
 
 					   </div>

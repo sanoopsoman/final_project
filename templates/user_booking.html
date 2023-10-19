@@ -33,7 +33,7 @@
 		<header class="top-header">
 		<div class="container">
             <div class="col-md-3 header-logo" style="height:130px;">
-					<h4 >{{ obj }}.</h4>
+					<h4 >{{ var.username }}.</h4>
 				<button type="button" class="btn btn-danger"><a href="/logout/">logout</a></button>
 					<br>
 					<a href="/patient_data/{{res.id}}"><img src="{{ var.image }}" width="150px" height="100px" alt=""style="border-radius:100%;margin-left:60px;"></a>
@@ -147,27 +147,18 @@
 					   <input type="radio" name="type" value="others"> others
 					   <div class="form-group">
 						   <label>username:</label><br>
-						   <input type="text" name="uname" class="form-control" value="{{obj}}"/>
+						   <input type="text" name="uname" class="form-control" value="{{var.username}}"/>
 					   </div>
 					   <div class="form-group">
 						   <label>specialization:</label><br>
 						   <select class="form-control" name="special">
 							   {% for i in str %}
-							   <option name="special">{{ i.specialization }}</option>
+							   <option value="{{ i }}">{{ i }}</option>
 							   {% endfor %}
 							   </select>
 					   </div>
 
-					   <div class="form-group">
-						   <label>doctor:</label><br>
-						   <select class="form-control" name="dname">
-							   {% for i in int %}
-							   <option name="dname">{{ i.name }}</option>
-							   {% endfor %}
-
-								  </select>
-
-					   </div>
+					  
 					    <div class="form-group">
 							<input type="submit" value="Next" class="btn btn-primary form-control">
 <!--							<button type="button" class="btn btn-primary form-control"><a href="/user_booking1/{{var.id}}">Next</a></button>-->
