@@ -5,6 +5,7 @@ from django.core.files.storage import FileSystemStorage
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
 
+
 # Create your views here.
 from doctorapp.models import tbl_register, tbl_account, doctor_detail, about_us, tbl_appoinment, doctor_availability
 
@@ -586,7 +587,7 @@ def user_booking1(request):
     c.username = request.POST.get('uname')
     print(c.username, 'heloooo')
     c.specialization = request.POST.get('special')
-    c.doctor = request.POST.get('dname')
+    # c.doctor = request.POST.get('dname')
     c.status = "form1"
     c.age = 11
     c.save()
@@ -609,6 +610,7 @@ def user_booking2(request):
     c = tbl_appoinment.objects.get(id=id, status="form1")
     if c.booking_type == "self":
         try:
+            c.doctor = request.POST.get('dname')
             c.name = request.POST.get('uname')
             c.age = request.POST.get('age')
             c.gender = request.POST.get('gen')
@@ -624,6 +626,7 @@ def user_booking2(request):
             # photo
             c.save()
         except:
+            c.doctor = request.POST.get('dname')
             c.name = request.POST.get('uname')
             c.age = request.POST.get('age')
             c.gender = request.POST.get('gen')

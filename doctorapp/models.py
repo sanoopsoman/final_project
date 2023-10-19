@@ -1,6 +1,7 @@
 from django.db import models
 import datetime
 
+
 # Create your models here.
 class about_us(models.Model):
     name = models.CharField(max_length=20)

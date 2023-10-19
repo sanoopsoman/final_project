@@ -173,6 +173,7 @@
 						   <label>photo:</label><br>
 							{% if bg.booking_type == "self" %}
 							<img src="{{ str.image }}">
+							 <input type="file" name="image" value="" class="form-control">
 							{% else %}
 
 						   <input type="file" name="image" value="{{ str.image }}" class="form-control">
