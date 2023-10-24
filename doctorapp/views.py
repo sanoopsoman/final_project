@@ -669,9 +669,13 @@ def user_booking2(request):
             c.save()
     patient = tbl_appoinment.objects.get(username=a, status="form2")
     b = doctor_availability.objects.filter(name=patient.doctor)
+    x = b.date
+    for i in x:
 
+        print(i)
+    y=i
+    return render(request, 'user_booking2.html', {'obj': a, 'var': patient, 'str': y})
 
-    return render(request, 'user_booking2.html', {'obj': a, 'var': patient,'str':b})
 
 def user_booking3(request):
     a = request.session['username']
