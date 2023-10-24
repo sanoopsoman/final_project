@@ -5,7 +5,6 @@ from django.core.files.storage import FileSystemStorage
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
 
-
 # Create your views here.
 from doctorapp.models import tbl_register, tbl_account, doctor_detail, about_us, tbl_appoinment, doctor_availability
 
@@ -570,11 +569,15 @@ def book_slot(request):
 def user_booking(request):
     a = request.session['username']
     b = tbl_register.objects.get(username=a)
-    c = doctor_availability.objects.all()
-    d = doctor_availability.objects.filter(specialization='neurology')
-    e = doctor_availability.objects.filter(specialization='cardiology')
-    f = doctor_availability.objects.filter(specialization='Family physician')
-    return render(request, 'user_booking.html', {'obj': a, 'str': c, 'py': d, 'var': b, 'data': e, 'int': f})
+    c = doctor_detail.objects.all()
+    spl = []
+    for i in c:
+        if i.specialization in spl:
+            pass
+        else:
+            spl.append(i.specialization)
+    print(c, "test doc")
+    return render(request, 'user_booking.html', {'str': spl, 'var': b, })
 
 
 def user_booking1(request):
@@ -587,85 +590,88 @@ def user_booking1(request):
     c.username = request.POST.get('uname')
     print(c.username, 'heloooo')
     c.specialization = request.POST.get('special')
+
     # c.doctor = request.POST.get('dname')
+
+    #
     c.status = "form1"
     c.age = 11
     c.save()
 
     if c.booking_type == 'self':
-
+        doc = []
         print("test11")
-        x = tbl_appoinment.objects.get(username=a, status='form1', booking_type="self")
-
-        return render(request, 'user_booking1.html', {'obj': a, 'py': c, 'bg': x, 'str': d})
+        data = tbl_appoinment.objects.get(username=a, status='form1', booking_type="self")
+        dctr = doctor_availability.objects.filter(specialization=data.specialization)
+        for x in dctr:
+            if x.name in doc:
+                pass
+            else:
+                doc.append(x.name)
+        return render(request, 'user_booking1.html', {'py': c, 'bg': data, 'str': d, "dc": doc})
 
     else:
+        doc = []
         data = tbl_appoinment.objects.get(username=a, status='form1', booking_type="others")
-        return render(request, 'user_booking1.html', {'obj': a, 'py': c, 'id': data})
+        dctr = doctor_availability.objects.filter(specialization=data.specialization)
+        for x in dctr:
+            if x.name in doc:
+                pass
+            else:
+                doc.append(x.name)
+        return render(request, 'user_booking1.html', {'obj': a, 'py': c, 'id': data, "dc": doc})
 
 
 def user_booking2(request):
     a = request.session['username']
     id = request.POST.get('id')
+    user = tbl_register.objects.get(username=a)
     c = tbl_appoinment.objects.get(id=id, status="form1")
     if c.booking_type == "self":
         try:
+
             c.doctor = request.POST.get('dname')
+
+            print("Selfffff")
+            c = tbl_appoinment.objects.get(id=id, status="form1", booking_type="self")
+
             c.name = request.POST.get('uname')
             c.age = request.POST.get('age')
             c.gender = request.POST.get('gen')
             c.mob = request.POST.get('mob')
             c.email = request.POST.get('email')
+            c.doctor = request.POST.get('dname')
             c.status = "form2"
             c.symtoms = request.POST.get('symptoms')
-            photo = request.FILES['image']
-            obj = FileSystemStorage()
-            data = obj.save(photo.name, photo)
-            x = obj.url(data)
-            c.image = x
-            # photo
+
+            c.image = user.image
             c.save()
         except:
+
             c.doctor = request.POST.get('dname')
+
+            print("otherss")
+            c = tbl_appoinment.objects.get(id=id, status="form1", booking_type="others")
+
             c.name = request.POST.get('uname')
             c.age = request.POST.get('age')
             c.gender = request.POST.get('gen')
             c.mob = request.POST.get('mob')
             c.email = request.POST.get('email')
             c.status = "form2"
+            c.doctor = request.POST.get('dname')
             c.symtoms = request.POST.get('symptoms')
             photo = request.FILES['image']
             obj = FileSystemStorage()
             data = obj.save(photo.name, photo)
             x = obj.url(data)
             c.image = x
-            # photo
             c.save()
-    # else:
-    #     c.name = request.POST.get('uname')
-    #     c.age = request.POST.get('age')
-    #     c.gender = request.POST.get('gen')
-    #     c.mob = request.POST.get('mob')
-    #     c.email = request.POST.get('email')
-    #     c.status = "form2"
-    #     c.symtoms = request.POST.get('symptoms')
-    #     photo = request.FILES['image']
-    #     obj = FileSystemStorage()
-    #     data = obj.save(photo.name, photo)
-    #     x = obj.url(data)
-    #     c.image = x
-    #     # photo
-    #     c.save()
+    patient = tbl_appoinment.objects.get(username=a, status="form2")
+    b = doctor_availability.objects.filter(name=patient.doctor)
 
-    if c.status == "form2":
-        b = doctor_availability.objects.get(id=id)
-        c = tbl_appoinment.objects.get(username=a, status="form2")
-        return render(request, 'user_booking2.html', {'obj': a, 'var': c, 'str': b})
-    else:
-        b = doctor_availability.objects.get(id=id)
-        c = tbl_appoinment.objects.get(username=a, status="form2")
-        return render(request, 'user_booking2.html', {'obj': a, 'var': c, 'str': b})
 
+    return render(request, 'user_booking2.html', {'obj': a, 'var': patient,'str':b})
 
 def user_booking3(request):
     a = request.session['username']

@@ -154,19 +154,18 @@
 					   </div>
 					    <div class="form-group">
 						   <label>booking day:</label>
-						   <select>
-							   {% for i in str %}
-						   <option>{{ i.day }}</option>
-							   {% endfor %}
-
-							   </select>
+							{% for i in str %}
+						 <input type="radio" value="days" name="day">{{ i.day }}
+							{% endfor %}
 
 
 					   </div>
 					     <div class="form-group">
 						   <label>booking time:</label><br>
-						  <select>
-							  <option></option>
+						  <select name="time">
+							{% for i in str %}
+							<option value="{{ i.start_time }} {{ i.end_time }}">{{ i.start_time }} {{ i.end_time }}</option>
+								{% endfor %}
 						  </select>
 					   </div>
 					    <div class="form-group">
@@ -186,7 +185,7 @@
 
 					   <div class="form-group">
 						   <label>Fee:</label><br>
-						   <input type="number" name="fee" class="form-control">
+						   <input  name="fee" value="{{ var.fee }}" class="form-control">
 					   </div>
 					    <div class="form-group">
 							<input type="submit" class="btn btn-primary form-control" value="BOOK APPOINMENT">					   </div>
